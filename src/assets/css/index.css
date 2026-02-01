@@ -18,3 +18,23 @@ body {
   background: white;
   color: #191919;
 }
+
+.swiper-button-prev, .swiper-button-next {
+    top: 30px !important;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid color-mix(in srgb, rgb(161, 161, 161) 20%, transparent);
+    padding: 10px;
+    border-radius: 0 !important;
+    
+    svg {
+        color: white;
+    }
+}
+
+.swiper-button-prev {
+    left: 8px !important;
+}
+
+.swiper-button-next {
+    right: 8px !important;
+}

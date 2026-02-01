@@ -6,11 +6,32 @@ import greenMarket from "../assets/img/greenmarket.png"
 import servUp from "../assets/img/servup.png"
 import { TypeAnimation } from 'react-type-animation'; 
 import { ArrowDown, ArrowRight } from 'lucide-react'
+import {useState} from "react"
 
+import { Navigation } from 'swiper/modules';
+import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export default function Home() {
+    const [isAnnual, setIsAnnual] = useState(true);
+
+    const pricingData = [
+        { 
+            name: 'Basic', price: isAnnual ? 100 : 10, description: 'For startups and small teams.',
+            features: ['Essential site setup support','Access to basic UI templates','Email support for minor updates','Access to basic components']
+        },
+        {
+            name: 'Pro',mostPopular: true,price: isAnnual ? 300 : 30,description: 'Perfect for growing businesses.',
+            features: ['Custom web page design up to 5 pages','Access to basic UI templates','Email support for minor updates','Access to basic components']
+        },
+        {
+            name: 'Enterprise',price: isAnnual ? 500 : 50,description: 'For scaling brands and teams.',
+            features: ['Full website redesign & development','Advanced analytics insights','Ongoing dedicated support','Access to basic UI templates']
+        }
+
+    ]
+
   return (
     <>
       <Nav />
@@ -28,7 +49,7 @@ export default function Home() {
                     </p>
                     <div className="mt-8 flex gap-6 flex-wrap">
                         <a href="" className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-400">Découvrez mes créations</a>
-                        <a href="" className="bg-transparent text-white border border-neutral-400 text-sm font-medium px-6 py-2 transition duration-300 hover:bg-white/10">Travaillons ensemble ?</a>
+                        <a href="" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 hover:bg-white/10">Travaillons ensemble ?</a>
                     </div>
                 </div>
 
@@ -43,126 +64,162 @@ export default function Home() {
                 </a>
             </div>
 
-            <div className="mx-[160px]">
+            <div className="mx-[160px] pb-[250px]">
                 <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-10">Découvrez mes dernières créations <div className="bg-white h-[2px] w-25 mt-1"></div></h2>
 
-                <Swiper spaceBetween={50} slidesPerView={3} id="creations">
-                    <SwiperSlide className="group text-white border border-neutral-400/20 overflow-hidden">
-                        <div className="overflow-hidden">
+                <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={3} navigation id="creations">
+                    <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+                        <div className="relative overflow-hidden">
                             <img
                             src={gtasWebsite}
                             alt="Image illustrative du projet GTA Stories"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                             />
+                            <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2026</div>
                         </div>
-                        <div className="p-4 bg-black/50">
+                        <div className="p-4 bg-transparent">
                             <div className="mb-8">
-                                <h3 className="text-2xl font-semibold leading-tight tracking-tight">
+                                <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     GTA Stories - Site vitrine
                                 </h3>
-                                <p className="text-md font-light leading-tight tracking-tight mt-2">
+                                <p className="text-md font-light leading-tight tracking-tight mt-2 text-neutral-400">
                                     Projet réalisé pour le serveur FiveM GTA Stories.
                                 </p>
                             </div>
 
                             <div className="flex gap-2 flex-wrap mb-4">
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">React JS</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Tailwind CSS</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Optimisation SEO</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Responsive</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">React JS</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Tailwind CSS</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Optimisation SEO</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Responsive</p>
                             </div>
 
-                            <a href="" className="bg-white text-[#191919] text-sm font-medium px-4 py-2 transition duration-300 hover:bg-neutral-400 flex items-center gap-2 w-min">Découvrir <ArrowRight size="14" /></a>
+                            <a href="https://gta-stories.fr/" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min">Découvrir <ArrowRight size="14" /></a>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide className="group text-white border border-neutral-400/20 overflow-hidden">
-                        <div className="overflow-hidden">
-                            <img
-                            src={servUp}
-                            alt="Image illustrative du projet GTA Stories"
-                            className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                            />
-                        </div>
-                        <div className="p-4 bg-black/50">
-                            <div className="mb-8">
-                                <h3 className="text-2xl font-semibold leading-tight tracking-tight">
-                                    ServUp - Site SaaS
-                                </h3>
-                                <p className="text-md font-light leading-tight tracking-tight mt-2">
-                                    ServUP est une plateforme SaaS qui booste la visibilité des serveurs FiveM. Les utilisateurs peuvent créer un compte (vérifié par e-mail) et publier une fiche promotionnelle. D'autres fonctionnalités sont à prévoir.
-                                </p>
-                            </div>
-
-                            <div className="flex gap-2 flex-wrap mb-4">
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">HTML</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">CSS</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">JS</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">PHP (POO)</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">MYSQL</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Responsive</p>
-                            </div>
-
-                            <a href="" className="bg-white text-[#191919] text-sm font-medium px-4 py-2 transition duration-300 hover:bg-neutral-400 flex items-center gap-2 w-min">Découvrir <ArrowRight size="14" /></a>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="group text-white border border-neutral-400/20 overflow-hidden">
-                        <div className="overflow-hidden">
+                    <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+                        <div className="relative overflow-hidden">
                             <img
                             src={greenMarket}
-                            alt="Image illustrative du projet GTA Stories"
+                            alt="Image illustrative du projet Green Market"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                             />
+                            <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2025</div>
                         </div>
-                        <div className="p-4 bg-black/50">
+                        <div className="p-4 bg-transparent">
                             <div className="mb-8">
-                                <h3 className="text-2xl font-semibold leading-tight tracking-tight">
+                                <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     Green Market - Site vitrine 
                                 </h3>
-                                <p className="text-md font-light leading-tight tracking-tight mt-2">
+                                <p className="text-md font-light leading-tight tracking-tight mt-2 text-neutral-400">
                                     Projet réalisé dans le cadre d'un exercice scolaire. Green Market est censé représenté un site e-commerce fictif contenant une page home, une page produits incluant un système de filtre, et des pages produit dynamique.
                                 </p>
                             </div>
 
                             <div className="flex gap-2 flex-wrap mb-4">
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">React JS</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Tailwind CSS</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Optimisation SEO</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Récupération de données API</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Responsive</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">React JS</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Tailwind CSS</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Optimisation SEO</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Récupération de données API</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Responsive</p>
                             </div>
 
-                            <a href="" className="bg-white text-[#191919] text-sm font-medium px-4 py-2 transition duration-300 hover:bg-neutral-400 flex items-center gap-2 w-min">Découvrir <ArrowRight size="14" /></a>
+                            <a href="https://green-market-d3jw.vercel.app/" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min">Découvrir <ArrowRight size="14" /></a>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide className="group text-white border border-neutral-400/20 overflow-hidden">
-                        <div className="overflow-hidden">
+                    <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+                        <div className="relative overflow-hidden">
                             <img
-                            src={greenThumbs}
-                            alt="Image illustrative du projet GTA Stories"
+                            src={servUp}
+                            alt="Image illustrative du projet ServUP"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                             />
+                            <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2024</div>
                         </div>
-                        <div className="p-4 bg-black/50">
+                        <div className="p-4 bg-transparent">
                             <div className="mb-8">
-                                <h3 className="text-2xl font-semibold leading-tight tracking-tight">
+                                <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
+                                    ServUp - Site SaaS
+                                </h3>
+                                <p className="text-md font-light leading-tight tracking-tight mt-2 text-neutral-400">
+                                    ServUP est une plateforme SaaS qui booste la visibilité des serveurs FiveM. Les utilisateurs peuvent créer un compte (vérifié par e-mail) et publier une fiche promotionnelle. D'autres fonctionnalités sont à prévoir.
+                                </p>
+                            </div>
+
+                            <div className="flex gap-2 flex-wrap">
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">HTML</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">CSS</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">JS</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">PHP (POO)</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">MYSQL</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Responsive</p>
+                            </div>
+
+                            {/* <button className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min" disabled>Découvrir <ArrowRight size="14" /></button> */}
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+                        <div className="relative overflow-hidden">
+                            <img
+                            src={greenThumbs}
+                            alt="Image illustrative du projet Green Thumbs"
+                            className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            />
+                            <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2023</div>
+                        </div>
+                        <div className="p-4 bg-transparent">
+                            <div className="mb-8">
+                                <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     Green Thumbs - Site vitrine
                                 </h3>
-                                <p className="text-md font-light leading-tight tracking-tight mt-2">
+                                <p className="text-md font-light leading-tight tracking-tight mt-2 text-neutral-400">
                                     Projet réalisé dans le cadre d'un exercice scolaire. Green Thumbs est un site vitrine fictif.
                                 </p>
                             </div>
 
                             <div className="flex gap-2 flex-wrap mb-4">
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">HTML</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">CSS</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">JS</p>
-                                <p className="px-3 py-1 bg-black/50 border border-neutral-400/20">Responsive</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">HTML</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">CSS</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">JS</p>
+                                <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">Responsive</p>
                             </div>
 
-                            <a href="" className="bg-white text-[#191919] text-sm font-medium px-4 py-2 transition duration-300 hover:bg-neutral-400 flex items-center gap-2 w-min">Découvrir <ArrowRight size="14" /></a>
+                            <a href="https://r-green-thumbs-z62e.vercel.app/" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min">Découvrir <ArrowRight size="14" /></a>
                         </div>
                     </SwiperSlide>
                 </Swiper>
+            </div>
+
+            <div className="mx-[160px]">
+                <section className='flex items-center justify-center flex-col px-4'>
+                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-10">Tarifs <div className="bg-white h-[2px] w-10 mt-1"></div></h2>
+                <div className='mt-6 flex bg-white/5 p-1 border border-white/10'>
+                    <button onClick={() => setIsAnnual(false)} className={`px-6 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isAnnual ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Monthly</button>
+                    <button onClick={() => setIsAnnual(true)} className={`px-6 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isAnnual ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Annually</button>
+                </div>
+                <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                    {pricingData.map((item, index) => (
+                        <div key={index} className={`border p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1 ${item.mostPopular ? 'bg-white/5 border-white/20' : 'border-neutral-400/20 bg-transparent'}`}>
+                            <h1 className='font-medium text-3xl text-white mt-1'>{item.name}</h1>
+                            <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
+                            <h1 className='font-medium text-5xl text-white mt-6'>${item.price}</h1>
+                            <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-8 transition duration-300 ${item.mostPopular ? 'bg-white hover:bg-neutral-200 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
+                                Get Started
+                            </button>
+                            <div className='w-full mt-8 space-y-2.5 pb-4'>
+                                {item.features.map((feature, index) => (
+                                    <p key={index} className='flex items-center gap-3 text-sm text-neutral-400'>
+                                        <span className='size-3 bg-neutral-800 flex items-center justify-center shrink-0'>
+                                            <span className='size-1.5 bg-white' />
+                                        </span>
+                                        {feature}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
             </div>
         </main>
     </>
