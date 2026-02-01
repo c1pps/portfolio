@@ -1,0 +1,20 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+body {
+    background-color: #191919;
+    font-family: var(--font-sans);
+    font-feature-settings: "liga", "kern";
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: white;
+  color: #191919;
+}
+
+::-moz-selection {
+  background: white;
+  color: #191919;
+}
