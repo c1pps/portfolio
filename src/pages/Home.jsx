@@ -1,11 +1,13 @@
 import Nav from "../components/Nav";
+
+import { motion } from "framer-motion";
 import mockup from "../assets/img/mockup-zoomed.png";
 import gtasWebsite from "../assets/img/gtas-website.png"
 import greenThumbs from "../assets/img/greenthumbs.png"
 import greenMarket from "../assets/img/greenmarket.png"
 import servUp from "../assets/img/servup.png"
 import { TypeAnimation } from 'react-type-animation'; 
-import { ArrowDown, ArrowRight } from 'lucide-react'
+import { ArrowDown, ArrowRight, Code, Terminal, Cpu, Globe, Zap, LayoutTemplate, Hash, Braces } from 'lucide-react'
 import {useState} from "react"
 
 // Front
@@ -161,6 +163,71 @@ export default function Home() {
 
   return (
     <>
+      <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#191919] via-transparent to-[#191919]"></div>
+
+        {/* Floating Icons - Top Left */}
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 0.03, y: 0 }} 
+            transition={{ duration: 1, delay: 0.5 }}
+            className="absolute top-32 left-20 text-white rotate-12"
+        >
+            <Code size={120} strokeWidth={1} />
+        </motion.div>
+
+        {/* Floating Icons - Top Right */}
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 0.03, y: 0 }} 
+            transition={{ duration: 1, delay: 0.7 }}
+            className="absolute top-40 right-20 text-white -rotate-12"
+        >
+            <Terminal size={100} strokeWidth={1} />
+        </motion.div>
+
+        {/* Floating Icons - Middle Left */}
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }} 
+            animate={{ opacity: 0.02, scale: 1 }} 
+            transition={{ duration: 1, delay: 0.9 }}
+            className="absolute top-1/2 left-32 text-white rotate-6"
+        >
+            <Braces size={140} strokeWidth={0.5} />
+        </motion.div>
+
+         {/* Floating Icons - Middle Right */}
+         <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }} 
+            animate={{ opacity: 0.02, scale: 1 }} 
+            transition={{ duration: 1, delay: 1.1 }}
+            className="absolute top-[45%] right-40 text-white -rotate-6"
+        >
+            <Cpu size={110} strokeWidth={0.5} />
+        </motion.div>
+
+        {/* Floating Icons - Bottom Left */}
+        <motion.div 
+            initial={{ opacity: 0, y: -20 }} 
+            animate={{ opacity: 0.03, y: 0 }} 
+            transition={{ duration: 1, delay: 1.3 }}
+            className="absolute bottom-40 left-10 text-white rotate-45"
+        >
+            <Hash size={90} strokeWidth={1} />
+        </motion.div>
+
+        {/* Floating Icons - Bottom Right */}
+        <motion.div 
+            initial={{ opacity: 0, y: -20 }} 
+            animate={{ opacity: 0.03, y: 0 }} 
+            transition={{ duration: 1, delay: 1.5 }}
+            className="absolute bottom-20 right-10 text-white -rotate-12"
+        >
+            <Globe size={130} strokeWidth={0.5} />
+        </motion.div>
+      </div>
       <Nav />
         <main>
             <div className="mt-[200px] text-white flex flex-col lg:flex-row items-center justify-between gap-10 mx-[160px]">
@@ -171,7 +238,7 @@ export default function Home() {
                         <br />
                         <TypeAnimation sequence={[ 'votre prochain site.', 2000, 'une expérience web.', 1500, 'un produit performant.', 2000]} speed={50} repeat={Infinity} className="transition duration-300 text-neutral-400 font-light leading-14 tracking-tight hover:text-white"/>
                     </h1>
-                    <p className="mt-4 font-light text-xl tracking-[0.5px]">
+                    <p className="mt-4 font-light text-xl">
                         « Je crois aux choix réfléchis, aux détails soignés et aux résultats durables. »
                     </p>
                     <div className="mt-8 flex gap-6 flex-wrap">
@@ -381,11 +448,13 @@ export default function Home() {
             </div>
 
             <div className="mx-[160px] pb-[250px]">
-                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15"></div></h2>
-                <p className="text-lg text-neutral-400 mb-2">Rapidement, je suis un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
-                <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
-                    <button onClick={() => setIsSchool(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Etudes</button>
-                    <button onClick={() => setIsSchool(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Compétences</button>
+                <div className="w-[60%]">
+                    <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15"></div></h2>
+                    <p className="text-lg text-neutral-400 mb-2">Rapidement, je suis un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
+                    <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
+                        <button onClick={() => setIsSchool(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Etudes</button>
+                        <button onClick={() => setIsSchool(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Compétences</button>
+                    </div>
                 </div>
                 {!isSchool ? (
                         <div className="w-full flex gap-10 justify-between mt-4">
@@ -488,6 +557,33 @@ export default function Home() {
                             </div>
                         </div>
                     )}
+            </div>
+            <div className="w-[70%] mx-auto p-8 border border-white/10 mb-[100px]">
+                <div className="flex gap-14 justify-between items-start">
+                    <div className="w-[40%]">
+                        <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">Prenons contact !</h2>
+                        <p className="text-md text-neutral-400">Décrivez votre projet en précisant <strong>l’offre souhaitée,</strong> les <strong>options nécessaires,</strong> ainsi que toute information utile (objectifs, délais, budget estimé). Plus votre message est détaillé, plus nous pourrons vous répondre rapidement et efficacement.</p>
+                    </div>
+                    <div className="w-[60%]">
+                        <form>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-sm text-neutral-400">*Nom</label>
+                                    <input type="text" name="name" required className="w-full bg-transparent border border-neutral-400/20 text-white placeholder-neutral-500 px-3 py-2 focus:outline-none focus:border-white/40" placeholder="Votre nom" />
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-sm text-neutral-400">*Email</label>
+                                    <input type="email" name="email" required className="w-full bg-transparent border border-neutral-400/20 text-white placeholder-neutral-500 px-3 py-2 focus:outline-none focus:border-white/40" placeholder="vous@exemple.com" />
+                                </div>
+                            </div>
+                            <div className="mt-4 flex flex-col gap-2">
+                                <label className="text-sm text-neutral-400">*Message</label>
+                                <textarea name="message" rows="4" required className="w-full bg-transparent border border-neutral-400/20 text-white placeholder-neutral-500 px-3 py-2 focus:outline-none focus:border-white/40" placeholder="Présentez votre projet, votre offre, vos besoins, votre délai et vos éventuelles options" />
+                            </div>
+                            <button type="submit" className="mt-6 bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 flex items-center gap-2 cursor-pointer">Envoyer <ArrowRight size="14" /></button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </main>
     </>
