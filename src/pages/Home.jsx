@@ -8,6 +8,32 @@ import { TypeAnimation } from 'react-type-animation';
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import {useState} from "react"
 
+// Front
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3Alt } from "react-icons/fa";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { FaBootstrap } from "react-icons/fa";
+import { FaJs } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
+
+// Back
+import { FaPhp } from "react-icons/fa";
+import { FaNodeJs } from "react-icons/fa";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiMysql } from "react-icons/si";
+import { SiSqlite } from "react-icons/si";
+import { DiMongodb } from "react-icons/di";
+import { FaLaravel } from "react-icons/fa";
+import { FaSymfony } from "react-icons/fa";
+
+// Logiciel
+import { FaFigma } from "react-icons/fa";
+import { DiPhotoshop } from "react-icons/di";
+import { DiVisualstudio } from "react-icons/di";
+import { SiPhpstorm } from "react-icons/si";
+import { VscTerminalCmd } from "react-icons/vsc";
+import { FaGitAlt } from "react-icons/fa";
+
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -166,7 +192,7 @@ export default function Home() {
             </div>
 
             <div className="mx-[160px] pb-[250px]">
-                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-10">Découvrez mes dernières créations <div className="bg-white h-[2px] w-25 mt-1"></div></h2>
+                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-10">Découvrez mes dernières créations <div className="bg-white h-[2px] w-25"></div></h2>
 
                 <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={3} navigation id="creations">
                     <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
@@ -183,7 +209,7 @@ export default function Home() {
                                 <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     GTA Stories - Site vitrine
                                 </h3>
-                                <p className="text-md font-light leading-tight tracking-tight mt-2 text-neutral-400">
+                                <p className="text-sm mt-2 text-neutral-400">
                                     Projet réalisé pour le serveur FiveM GTA Stories.
                                 </p>
                             </div>
@@ -212,7 +238,7 @@ export default function Home() {
                                 <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     Green Market - Site vitrine 
                                 </h3>
-                                <p className="text-md font-light leading-tight tracking-tight mt-2 text-neutral-400">
+                                <p className="text-sm mt-2 text-neutral-400">
                                     Projet réalisé dans le cadre d'un exercice scolaire. Green Market est censé représenté un site e-commerce fictif contenant une page home, une page produits incluant un système de filtre, et des pages produit dynamique.
                                 </p>
                             </div>
@@ -242,7 +268,7 @@ export default function Home() {
                                 <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     ServUp - Site SaaS
                                 </h3>
-                                <p className="text-md font-light leading-tight tracking-tight mt-2 text-neutral-400">
+                                <p className="text-sm mt-2 text-neutral-400">
                                     ServUP est une plateforme SaaS qui booste la visibilité des serveurs FiveM. Les utilisateurs peuvent créer un compte (vérifié par e-mail) et publier une fiche promotionnelle. D'autres fonctionnalités sont à prévoir.
                                 </p>
                             </div>
@@ -273,7 +299,7 @@ export default function Home() {
                                 <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     Green Thumbs - Site vitrine
                                 </h3>
-                                <p className="text-md font-light leading-tight tracking-tight mt-2 text-neutral-400">
+                                <p className="text-md  mt-2 text-neutral-400">
                                     Projet réalisé dans le cadre d'un exercice scolaire. Green Thumbs est un site vitrine fictif.
                                 </p>
                             </div>
@@ -294,7 +320,7 @@ export default function Home() {
             <div className="mx-[160px] pb-[250px]">
                 <section className='flex items-start justify-center flex-col w-full'>
                     <div className="text-left w-[60%]">
-                        <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">Tarifs <div className="bg-white h-[2px] w-10 mt-1"></div></h2>
+                        <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">Tarifs <div className="bg-white h-[2px] w-10"></div></h2>
                         <p className="text-lg text-neutral-400 mb-2">* Le code source est livré au client après paiement. L’hébergement est mis en place par mes soins, puis transféré au client (avec support et explication si besoin).</p>
                         <p className="text-lg text-neutral-400 mb-14">* Les offres et options présentés ici peuvent varier, cela dépendra de votre demande.</p>
                         <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
@@ -306,7 +332,7 @@ export default function Home() {
                         <div className='mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                             {pricingData.map((item, index) => (
                                 <div key={index} className={`border p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1 ${item.mostPopular ? 'bg-white/5 border-white/20' : 'border-neutral-400/20 bg-transparent'}`}>
-                                    <h1 className='font-medium text-3xl text-white mt-1'>{item.name}</h1>
+                                    <h3 className='font-medium text-3xl text-white mt-1'>{item.name}</h3>
                                     <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
                                     <h1 className='font-medium text-5xl text-white mt-6'>€{item.price}</h1>
                                     <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-8 transition duration-300 font-medium ${item.mostPopular ? 'bg-white hover:bg-neutral-200 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
@@ -330,7 +356,7 @@ export default function Home() {
                             <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={3} navigation>
                                 {options.map((item, index) => (
                                     <SwiperSlide key={index} className={`border p-6 flex flex-col items-start transition duration-300 border-neutral-400/20 bg-transparent`}>
-                                        <h1 className='font-medium text-3xl text-white mt-1'>{item.name}</h1>
+                                        <h3 className='font-medium text-3xl text-white mt-1'>{item.name}</h3>
                                         <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
                                         <h1 className='font-medium text-5xl text-white mt-6'>€{item.price}</h1>
                                         <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}>
@@ -354,14 +380,114 @@ export default function Home() {
                 </section>
             </div>
 
-            <div className="mx-[160px]">
-                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15 mt-1"></div></h2>
-                <p className="text-lg text-neutral-400 mb-2">Rapidement, je suis un jeune développeur web de 17 ans avec maintenant plus de 3 ans d'éxperience.</p>
+            <div className="mx-[160px] pb-[250px]">
+                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15"></div></h2>
+                <p className="text-lg text-neutral-400 mb-2">Rapidement, je suis un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
                 <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
                     <button onClick={() => setIsSchool(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Etudes</button>
                     <button onClick={() => setIsSchool(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Compétences</button>
                 </div>
-                S'inspirer de ca : https://tailwindcss.com/plus/ui-blocks/marketing/page-examples/about-pages
+                {!isSchool ? (
+                        <div className="w-full flex gap-10 justify-between mt-4">
+                            <div>
+                                <div>
+                                    <ul>
+                                        <div className="flex items-center gap-6 w-full mb-2">
+                                            <li className="list-disc text-neutral-400 mx-5 font-medium">
+                                                <span>Sept 2025 - Juil 2026</span>
+                                            </li>
+                                            <div className="h-px flex-1 bg-neutral-400"></div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="font-medium text-3xl text-white mb-1">Alternance</h3>
+                                    <p className="text-neutral-400 text-sm">Je suis actuellement en alternance en tant que développeur web, où je mets en pratique les compétences acquises à l’école à travers des projets concrets et professionnels. Cette expérience me permet de renforcer mon autonomie et ma maîtrise des technologies web.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <ul>
+                                        <div className="flex items-center gap-6 w-full mb-2">
+                                            <li className="list-disc text-neutral-400 mx-5 font-medium">
+                                                <span>Sept 2023 - Juil 2026</span>
+                                            </li>
+                                            <div className="h-px flex-1 bg-neutral-400"></div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="font-medium text-3xl text-white mb-1">Formation</h3>
+                                    <p className="text-neutral-400 text-sm">
+                                    Je suis actuellement étudiant à EDEN School Paris dans un cursus de trois ans dédié au développement web et mobile. La première année est axée sur le front-end, la deuxième sur le back-end, et la troisième, en alternance, sur le développement mobile.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <ul>
+                                        <div className="flex items-center gap-6 w-full mb-2">
+                                            <li className="list-disc text-neutral-400 mx-5 font-medium">
+                                                <span>Déc 2022</span>
+                                            </li>
+                                            <div className="h-px flex-1 bg-neutral-400"></div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="font-medium text-3xl text-white mb-1">Stage d'observation</h3>
+                                    <p className="text-neutral-400 text-sm">J'ai effectué mon stage de troisième au siège social de Microsoft à Issy-les-Moulineaux. Dans un cadre très pédagogique, j'ai eu l'opportunité de découvrir leurs locaux et d'assister à des formations sur la cybersécurité, la désinformation et la sensibilisation aux cyberattaques.</p>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="w-full mt-4">
+                            <div className="flex items-center gap-10 justify-between mb-4">
+                                <div className="w-[40%]">
+                                    <h3 className="font-medium text-3xl text-white mb-2 flex items-center gap-4">Languages Front End <div className="bg-white h-[2px] w-22"></div></h3>
+                                    <p className="text-neutral-400 text-sm">Je développe des interfaces modernes, responsives et accessibles, en accordant une attention particulière à l’ergonomie, aux performances et à la qualité de l’intégration visuelle.</p>
+                                </div>
+                                <div className="flex flex-wrap gap-6">
+                                    <FaHtml5 size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaCss3Alt size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <RiTailwindCssFill size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaBootstrap size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaJs size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaReact size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                </div>
+                            </div>
+                            <div className="flex gap-10 justify-between items-center mb-4">
+                                <div className="w-[40%]">
+                                    <h3 className="font-medium text-3xl text-white mb-2 flex items-center gap-4">Languages Back End <div className="bg-white h-[2px] w-20"></div></h3>
+                                    <p className="text-neutral-400 text-sm">Je conçois des logiques applicatives robustes et des bases de données structurées, en assurant la communication entre le front-end et le serveur ainsi que la gestion des données et des fonctionnalités.</p>
+                                </div>
+                                <div className="flex flex-wrap gap-6">
+                                    <FaPhp size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <FaNodeJs size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <RiNextjsFill size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <SiMysql size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <SiSqlite size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <DiMongodb size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <FaLaravel size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <FaSymfony size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-10 justify-between">
+                                <div className="w-[40%]">
+                                    <h3 className="font-medium text-3xl text-white mb-2 flex items-center gap-4">Logiciels et autres <div className="bg-white h-[2px] w-18"></div></h3>
+                                    <p className="text-neutral-400 text-sm">J’utilise des outils professionnels pour concevoir, développer et maintenir=des projets web efficacement, en favorisant un workflow organisé, collaboratif et orienté qualité.</p>
+                                </div>
+                                <div className="flex flex-wrap gap-6">
+                                    <FaFigma size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <DiPhotoshop size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <DiVisualstudio size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <SiPhpstorm size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <VscTerminalCmd size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaGitAlt size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                </div>
+                            </div>
+                        </div>
+                    )}
             </div>
         </main>
     </>
