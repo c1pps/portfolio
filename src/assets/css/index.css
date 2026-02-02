@@ -38,3 +38,7 @@ body {
 .swiper-button-next {
     right: 8px !important;
 }
+
+.w-fill {
+    width: -webkit-fill-available;
+}

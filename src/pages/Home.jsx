@@ -14,22 +14,123 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export default function Home() {
-    const [isAnnual, setIsAnnual] = useState(true);
+    const [isOptions, setIsOptions] = useState(false);
+    const [isSchool, setIsSchool] = useState(false);
 
     const pricingData = [
-        { 
-            name: 'Basic', price: isAnnual ? 100 : 10, description: 'For startups and small teams.',
-            features: ['Essential site setup support','Access to basic UI templates','Email support for minor updates','Access to basic components']
+        {
+            name: 'Basique',
+            price: "300 - 500",
+            description: 'Pour une présence en ligne simple et professionnelle.',
+            features: [
+                'Site vitrine 1 page (landing page)',
+                'Développement en React + Tailwind CSS',
+                'Design moderne et responsive',
+                'Intégration du contenu fourni',
+                'SEO de base (balises, structure)',
+                'Optimisation des performances',
+                'Support après livraison (7 jours)'
+            ]
         },
         {
-            name: 'Pro',mostPopular: true,price: isAnnual ? 300 : 30,description: 'Perfect for growing businesses.',
-            features: ['Custom web page design up to 5 pages','Access to basic UI templates','Email support for minor updates','Access to basic components']
+            name: 'Professionnel',
+            mostPopular: true,
+            price: "700 - 900",
+            description: 'Idéal pour indépendants et petites entreprises.',
+            features: [
+                'Site vitrine jusqu’à 5 pages',
+                'Design personnalisé',
+                'React + Tailwind CSS',
+                'Responsive tous supports',
+                'SEO optimisé',
+                'Accessibilité de base (contrastes, navigation clavier)',
+                'Formulaire de contact',
+                'Corrections mineures après livraison (14 jours)'
+            ]
         },
         {
-            name: 'Enterprise',price: isAnnual ? 500 : 50,description: 'For scaling brands and teams.',
-            features: ['Full website redesign & development','Advanced analytics insights','Ongoing dedicated support','Access to basic UI templates']
+            name: 'Enterprise',
+            price: "1200 - 1500",
+            description: 'Pour un site vitrine complet et évolutif.',
+            features: [
+                'Site vitrine sur mesure (jusqu’à 8 pages)',
+                'Architecture propre et scalable',
+                'React + Tailwind CSS avancé',
+                'SEO avancé',
+                'Accessibilité renforcée (WCAG basique)',
+                'Optimisation performances (Lighthouse)',
+                'Déploiement & mise en ligne',
+                'Support et ajustements (14 jours)'
+            ]
         }
+    ]
 
+    const options = [
+        {
+            name: 'SEO Avancé',
+            price: 150,
+            description: 'Amélioration du référencement pour une meilleure visibilité.',
+            features: [
+                'Optimisation des balises meta',
+                'Amélioration de la structure des pages',
+                'Optimisation des performances',
+                'Conseils mots-clés'
+            ]
+        },
+        {
+            name: 'Accessibilité',
+            price: 120,
+            description: 'Rendre le site accessible au plus grand nombre.',
+            features: [
+                'Contrastes et lisibilité optimisés',
+                'Navigation clavier',
+                'Balises ARIA essentielles',
+                'Bonnes pratiques WCAG (niveau basique)'
+            ]
+        },
+        {
+            name: 'Animations & UI',
+            price: 100,
+            description: 'Rendre le site plus vivant et moderne.',
+            features: [
+                'Animations simples (hover, transitions)',
+                'Micro-interactions UI',
+                'Animations TailwindCSS',
+                'Respect des performances'
+            ]
+        },
+        {
+            name: 'Maintenance post-livraison',
+            price: 80,
+            description: 'Corrections et ajustements après la mise en ligne.',
+            features: [
+                'Corrections de bugs mineurs (sur 14 jours)',
+                '5 petits ajustements UI',
+                'Support par email'
+            ]
+        },
+        {
+            name: 'Aide au contenu',
+            price: 120,
+            description: 'Accompagnement pour les textes et contenus.',
+            features: [
+                'Structuration des pages',
+                'Aide à la rédaction',
+                'Optimisation SEO du contenu'
+            ]
+        },
+        {
+            name: 'Fonctionnalité avec base de données',
+            price: 250,
+            description: 'Ajout de fonctionnalités dynamiques avec stockage de données.',
+            features: [
+                'Connexion à une base de données légère',
+                'Stockage de données simples (formulaires, contenus)',
+                // 'Solution type Firebase / Supabase',
+                'Pas de backend complexe',
+                'Sécurité des données'
+            ]
+        }
     ]
 
   return (
@@ -190,36 +291,77 @@ export default function Home() {
                 </Swiper>
             </div>
 
-            <div className="mx-[160px]">
-                <section className='flex items-center justify-center flex-col px-4'>
-                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-10">Tarifs <div className="bg-white h-[2px] w-10 mt-1"></div></h2>
-                <div className='mt-6 flex bg-white/5 p-1 border border-white/10'>
-                    <button onClick={() => setIsAnnual(false)} className={`px-6 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isAnnual ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Monthly</button>
-                    <button onClick={() => setIsAnnual(true)} className={`px-6 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isAnnual ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Annually</button>
-                </div>
-                <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                    {pricingData.map((item, index) => (
-                        <div key={index} className={`border p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1 ${item.mostPopular ? 'bg-white/5 border-white/20' : 'border-neutral-400/20 bg-transparent'}`}>
-                            <h1 className='font-medium text-3xl text-white mt-1'>{item.name}</h1>
-                            <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
-                            <h1 className='font-medium text-5xl text-white mt-6'>${item.price}</h1>
-                            <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-8 transition duration-300 ${item.mostPopular ? 'bg-white hover:bg-neutral-200 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
-                                Get Started
-                            </button>
-                            <div className='w-full mt-8 space-y-2.5 pb-4'>
-                                {item.features.map((feature, index) => (
-                                    <p key={index} className='flex items-center gap-3 text-sm text-neutral-400'>
-                                        <span className='size-3 bg-neutral-800 flex items-center justify-center shrink-0'>
-                                            <span className='size-1.5 bg-white' />
-                                        </span>
-                                        {feature}
-                                    </p>
-                                ))}
-                            </div>
+            <div className="mx-[160px] pb-[250px]">
+                <section className='flex items-start justify-center flex-col w-full'>
+                    <div className="text-left w-[60%]">
+                        <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">Tarifs <div className="bg-white h-[2px] w-10 mt-1"></div></h2>
+                        <p className="text-lg text-neutral-400 mb-2">* Le code source est livré au client après paiement. L’hébergement est mis en place par mes soins, puis transféré au client (avec support et explication si besoin).</p>
+                        <p className="text-lg text-neutral-400 mb-14">* Les offres et options présentés ici peuvent varier, cela dépendra de votre demande.</p>
+                        <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
+                            <button onClick={() => setIsOptions(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isOptions ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Développement</button>
+                            <button onClick={() => setIsOptions(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isOptions ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Options</button>
                         </div>
-                    ))}
+                    </div>
+                    {!isOptions ? (
+                        <div className='mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                            {pricingData.map((item, index) => (
+                                <div key={index} className={`border p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1 ${item.mostPopular ? 'bg-white/5 border-white/20' : 'border-neutral-400/20 bg-transparent'}`}>
+                                    <h1 className='font-medium text-3xl text-white mt-1'>{item.name}</h1>
+                                    <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
+                                    <h1 className='font-medium text-5xl text-white mt-6'>€{item.price}</h1>
+                                    <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-8 transition duration-300 font-medium ${item.mostPopular ? 'bg-white hover:bg-neutral-200 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
+                                        Choisir cette offre
+                                    </button>
+                                    <div className='w-full mt-8 space-y-2.5 pb-4'>
+                                        {item.features.map((feature, index) => (
+                                            <p key={index} className='flex items-center gap-3 text-sm text-neutral-400'>
+                                                <span className='size-3 bg-neutral-800 flex items-center justify-center shrink-0'>
+                                                    <span className='size-1.5 bg-white' />
+                                                </span>
+                                                {feature}
+                                            </p>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className='mt-4 w-full'>
+                            <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={3} navigation>
+                                {options.map((item, index) => (
+                                    <SwiperSlide key={index} className={`border p-6 flex flex-col items-start transition duration-300 border-neutral-400/20 bg-transparent`}>
+                                        <h1 className='font-medium text-3xl text-white mt-1'>{item.name}</h1>
+                                        <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
+                                        <h1 className='font-medium text-5xl text-white mt-6'>€{item.price}</h1>
+                                        <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}>
+                                            Discutons-en ensemble
+                                        </button>
+                                        <div className='w-full mt-8 space-y-2.5 pb-4'>
+                                            {item.features.map((feature, index) => (
+                                                <p key={index} className='flex items-center gap-3 text-sm text-neutral-400'>
+                                                    <span className='size-3 bg-neutral-800 flex items-center justify-center shrink-0'>
+                                                        <span className='size-1.5 bg-white' />
+                                                    </span>
+                                                    {feature}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
+                    )}
+                </section>
+            </div>
+
+            <div className="mx-[160px]">
+                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15 mt-1"></div></h2>
+                <p className="text-lg text-neutral-400 mb-2">Rapidement, je suis un jeune développeur web de 17 ans avec maintenant plus de 3 ans d'éxperience.</p>
+                <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
+                    <button onClick={() => setIsSchool(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Etudes</button>
+                    <button onClick={() => setIsSchool(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Compétences</button>
                 </div>
-            </section>
+                S'inspirer de ca : https://tailwindcss.com/plus/ui-blocks/marketing/page-examples/about-pages
             </div>
         </main>
     </>
