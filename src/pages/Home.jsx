@@ -610,7 +610,7 @@ export default function Home() {
                                 <label className="text-sm text-neutral-400">*Message</label>
                                 <textarea name="message" rows="4" required className="w-full bg-transparent border border-neutral-400/20 text-white placeholder-neutral-500 px-3 py-2 focus:outline-none focus:border-white/40" placeholder="Présentez votre projet, votre offre, vos besoins, votre délai et vos éventuelles options" />
                             </div>
-                            <div className="g-recaptcha mt-4" data-sitekey="6Lc-LF8sAAAAAD59OZJWXXiSELjjXHHmtaTf088l"></div>
+                            <div className="g-recaptcha mt-4" data-sitekey="6LdcIF8sAAAAADcdK8Tpf_uWdwQyqGDEaWJrH3s4" required></div>
                             <button type="submit" className="mt-6 bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 flex items-center gap-2 cursor-pointer">Envoyer {isLoading ? <LoaderCircle size="14" className="animate-spin" /> : <ArrowRight size="14" />}</button>
                         </form>
                     </div>
