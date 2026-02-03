@@ -7,7 +7,7 @@ import greenThumbs from "../assets/img/greenthumbs.png"
 import greenMarket from "../assets/img/greenmarket.png"
 import servUp from "../assets/img/servup.png"
 import { TypeAnimation } from 'react-type-animation'; 
-import { ArrowDown, ArrowRight, Code, Terminal, Cpu, Globe, Zap, LayoutTemplate, Hash, Braces } from 'lucide-react'
+import { ArrowDown, ArrowRight, Code, Terminal, Cpu, Globe, Zap, LayoutTemplate, Hash, Braces, LoaderCircle } from 'lucide-react'
 import React, {useState, useRef} from "react"
 
 // Front
@@ -45,23 +45,34 @@ import emailjs from '@emailjs/browser';
 export default function Home() {
     const [isOptions, setIsOptions] = useState(false);
     const [isSchool, setIsSchool] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const form = useRef();
 
     const sendEmail = (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
-        emailjs.sendForm('portfolio', 'portoflio-template', form.current, {
-            publicKey: 'olWgdrjClCGSGMNiq',
-        })
-        .then(
-            () => {
-                console.log('SUCCESS!');
-            },
-            (error) => {
-                console.log('FAILED...', error.text);
-            },
-        );
+        setTimeout(() => {
+            emailjs
+                .sendForm(
+                    'portfolio',
+                    'portoflio-template',
+                    form.current,
+                    { publicKey: 'olWgdrjClCGSGMNiq' }
+                )
+                .then(() => {
+                    console.log('SUCCESS!');
+                    form.current.reset();
+                })
+                .catch((error) => {
+                    console.log('FAILED...', error.text);
+                })
+                .finally(() => {
+                    setIsLoading(false);
+                });
+
+        }, 2000);
     };
 
     const pricingData = [
@@ -581,7 +592,7 @@ export default function Home() {
                 <div className="flex gap-14 justify-between items-start">
                     <div className="w-[40%]">
                         <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">Prenons contact !</h2>
-                        <p className="text-md text-neutral-400">Décrivez votre projet en précisant <strong>l’offre souhaitée,</strong> les <strong>options nécessaires,</strong> ainsi que toute information utile (objectifs, délais, budget estimé). Plus votre message est détaillé, plus nous pourrons vous répondre rapidement et efficacement.</p>
+                        <p className="text-md text-neutral-400">Décrivez votre projet en précisant <strong>l’offre souhaitée,</strong> les <strong>options nécessaires,</strong> ainsi que toute information utile (objectifs, délais, budget estimé). <br/> <br/> Plus votre message est détaillé, plus nous pourrons vous répondre rapidement et efficacement.</p>
                     </div>
                     <div className="w-[60%]">
                         <form ref={form} onSubmit={sendEmail}>
@@ -599,8 +610,8 @@ export default function Home() {
                                 <label className="text-sm text-neutral-400">*Message</label>
                                 <textarea name="message" rows="4" required className="w-full bg-transparent border border-neutral-400/20 text-white placeholder-neutral-500 px-3 py-2 focus:outline-none focus:border-white/40" placeholder="Présentez votre projet, votre offre, vos besoins, votre délai et vos éventuelles options" />
                             </div>
-                            <div className="g-recaptcha mt-4" data-sitekey="6LdcIF8sAAAAADcdK8Tpf_uWdwQyqGDEaWJrH3s4"></div>
-                            <button type="submit" className="mt-6 bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 flex items-center gap-2 cursor-pointer">Envoyer <ArrowRight size="14" /></button>
+                            <div className="g-recaptcha mt-4" data-sitekey="6Lc-LF8sAAAAAD59OZJWXXiSELjjXHHmtaTf088l"></div>
+                            <button type="submit" className="mt-6 bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 flex items-center gap-2 cursor-pointer">Envoyer {isLoading ? <LoaderCircle size="14" className="animate-spin" /> : <ArrowRight size="14" />}</button>
                         </form>
                     </div>
                 </div>
