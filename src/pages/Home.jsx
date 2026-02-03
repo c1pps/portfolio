@@ -8,7 +8,7 @@ import greenMarket from "../assets/img/greenmarket.png"
 import servUp from "../assets/img/servup.png"
 import { TypeAnimation } from 'react-type-animation'; 
 import { ArrowDown, ArrowRight, Code, Terminal, Cpu, Globe, Zap, LayoutTemplate, Hash, Braces } from 'lucide-react'
-import {useState} from "react"
+import React, {useState, useRef} from "react"
 
 // Front
 import { FaHtml5 } from "react-icons/fa";
@@ -41,9 +41,28 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
+import emailjs from '@emailjs/browser';
 export default function Home() {
     const [isOptions, setIsOptions] = useState(false);
     const [isSchool, setIsSchool] = useState(false);
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('portfolio', 'portoflio-template', form.current, {
+            publicKey: 'olWgdrjClCGSGMNiq',
+        })
+        .then(
+            () => {
+                console.log('SUCCESS!');
+            },
+            (error) => {
+                console.log('FAILED...', error.text);
+            },
+        );
+    };
 
     const pricingData = [
         {
@@ -565,7 +584,7 @@ export default function Home() {
                         <p className="text-md text-neutral-400">Décrivez votre projet en précisant <strong>l’offre souhaitée,</strong> les <strong>options nécessaires,</strong> ainsi que toute information utile (objectifs, délais, budget estimé). Plus votre message est détaillé, plus nous pourrons vous répondre rapidement et efficacement.</p>
                     </div>
                     <div className="w-[60%]">
-                        <form>
+                        <form ref={form} onSubmit={sendEmail}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm text-neutral-400">*Nom</label>
@@ -580,6 +599,7 @@ export default function Home() {
                                 <label className="text-sm text-neutral-400">*Message</label>
                                 <textarea name="message" rows="4" required className="w-full bg-transparent border border-neutral-400/20 text-white placeholder-neutral-500 px-3 py-2 focus:outline-none focus:border-white/40" placeholder="Présentez votre projet, votre offre, vos besoins, votre délai et vos éventuelles options" />
                             </div>
+                            <div className="g-recaptcha mt-4" data-sitekey="6LdcIF8sAAAAADcdK8Tpf_uWdwQyqGDEaWJrH3s4"></div>
                             <button type="submit" className="mt-6 bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 flex items-center gap-2 cursor-pointer">Envoyer <ArrowRight size="14" /></button>
                         </form>
                     </div>
