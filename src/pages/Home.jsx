@@ -260,38 +260,48 @@ export default function Home() {
       </div>
       <Nav />
         <main>
-            <div className="mt-[200px] text-white flex flex-col lg:flex-row items-center justify-between gap-10 mx-[160px]">
+            <div className="mt-[100px] md:mt-[200px] text-white flex flex-col lg:flex-row items-center justify-between gap-10 mx-[20px] md:mx-[160px]">
                 <div className="flex-1">
                     <div className="bg-white h-[2px] w-16 mb-4"></div>
-                    <h1 className="text-6xl font-semibold leading-tight tracking-tight">
+                    <h1 className="md:text-6xl text-4xl font-semibold leading-tight tracking-tight">
                         Je développe
                         <br />
                         <TypeAnimation sequence={[ 'votre prochain site.', 2000, 'une expérience web.', 1500, 'un produit performant.', 2000]} speed={50} repeat={Infinity} className="transition duration-300 text-neutral-400 font-light leading-14 tracking-tight hover:text-white"/>
                     </h1>
-                    <p className="mt-4 font-light text-xl">
+                    <p className="mt-4 font-light text-lg md:text-xl">
                         « Je crois aux choix réfléchis, aux détails soignés et aux résultats durables. »
                     </p>
-                    <div className="mt-8 flex gap-6 flex-wrap">
+                    <div className="mt-8 flex md:gap-x-6 gap-y-3 flex-wrap">
                         <a href="" className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-400">Découvrez mes créations</a>
                         <a href="" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 hover:bg-white/10">Travaillons ensemble ?</a>
                     </div>
                 </div>
 
-                <div className="flex-1 flex justify-center lg:justify-end">
+                <div className="flex-1 flex justify-center lg:justify-end md:mt-0 mt-10">
                     <img src={mockup} alt="Mockup MacBook codant" className="w-full max-w-lg shadow-2xl object-cover transform transition-transform duration-500 hover:scale-105"/>
                 </div>
             </div>
 
-            <div className="mt-[240px] pb-[300px] relative">
+            <div className="mt-[120px] md:mt-[240px] pb-[150px] md:pb-[300px] relative">
                 <a href="#creations" className="absolute -top-5 left-[50%] border border-neutral-400 p-2 transition-all duration-300 hover:bg-white/10 z-50 hover:top-0.5">
                     <ArrowDown className="text-neutral-400" />
                 </a>
             </div>
 
-            <div className="mx-[160px] pb-[250px]">
-                <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-10">Découvrez mes dernières créations <div className="bg-white h-[2px] w-25"></div></h2>
+            <div className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]">
+                <h2 className="flex items-center gap-4 text-white md:text-3xl text-xl font-semibold leading-tight tracking-tight mb-10">Découvrez mes dernières créations <div className="bg-white h-[2px] w-25"></div></h2>
 
-                <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={3} navigation id="creations">
+                <Swiper
+                    modules={[Navigation]}
+                    spaceBetween={50}
+                    navigation
+                    id="creations"
+                    breakpoints={{
+                        0: { slidesPerView: 1 },
+                        768: { slidesPerView: 1.3 },
+                        1024: { slidesPerView: 3 },
+                    }}
+                >
                     <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
                         <div className="relative overflow-hidden">
                             <img
@@ -414,12 +424,12 @@ export default function Home() {
                 </Swiper>
             </div>
 
-            <div className="mx-[160px] pb-[250px]">
+            <div className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]">
                 <section className='flex items-start justify-center flex-col w-full'>
-                    <div className="text-left w-[60%]">
-                        <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">Tarifs <div className="bg-white h-[2px] w-10"></div></h2>
-                        <p className="text-lg text-neutral-400 mb-2">* Le code source est livré au client après paiement. L’hébergement est mis en place par mes soins, puis transféré au client (avec support et explication si besoin).</p>
-                        <p className="text-lg text-neutral-400 mb-14">* Les offres et options présentés ici peuvent varier, cela dépendra de votre demande.</p>
+                    <div className="text-left md:w-[60%]">
+                        <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">Tarifs <div className="bg-white h-[2px] w-10"></div></h2>
+                        <p className="text-md md:text-lg text-neutral-400 mb-2">* Le code source est livré au client après paiement. L’hébergement est mis en place par mes soins, puis transféré au client (avec support et explication si besoin).</p>
+                        <p className="text-md md:text-lg text-neutral-400 mb-14">* Les offres et options présentés ici peuvent varier, cela dépendra de votre demande.</p>
                         <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
                             <button onClick={() => setIsOptions(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isOptions ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Développement</button>
                             <button onClick={() => setIsOptions(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isOptions ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Options</button>
@@ -429,10 +439,10 @@ export default function Home() {
                         <div className='mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                             {pricingData.map((item, index) => (
                                 <div key={index} className={`border p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1 ${item.mostPopular ? 'bg-white/5 border-white/20' : 'border-neutral-400/20 bg-transparent'}`}>
-                                    <h3 className='font-medium text-3xl text-white mt-1'>{item.name}</h3>
+                                    <h3 className='font-medium text-xl md:text-3xl text-white mt-1'>{item.name}</h3>
                                     <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
-                                    <h1 className='font-medium text-5xl text-white mt-6'>€{item.price}</h1>
-                                    <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-8 transition duration-300 font-medium ${item.mostPopular ? 'bg-white hover:bg-neutral-200 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
+                                    <h3 className='font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6'>€{item.price}</h3>
+                                    <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 font-medium ${item.mostPopular ? 'bg-white hover:bg-neutral-200 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
                                         Choisir cette offre
                                     </button>
                                     <div className='w-full mt-8 space-y-2.5 pb-4'>
@@ -450,13 +460,16 @@ export default function Home() {
                         </div>
                     ) : (
                         <div className='mt-4 w-full'>
-                            <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={3} navigation>
+                            <Swiper modules={[Navigation]} spaceBetween={50} slidesPerView={3} navigation breakpoints={{
+                        0: { slidesPerView: 1 },
+                        768: { slidesPerView: 1.3 },
+                        1024: { slidesPerView: 3 }}}>
                                 {options.map((item, index) => (
                                     <SwiperSlide key={index} className={`border p-6 flex flex-col items-start transition duration-300 border-neutral-400/20 bg-transparent`}>
-                                        <h3 className='font-medium text-3xl text-white mt-1'>{item.name}</h3>
+                                        <h3 className='font-medium text-xl md:text-3xl text-white mt-1'>{item.name}</h3>
                                         <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
-                                        <h1 className='font-medium text-5xl text-white mt-6'>€{item.price}</h1>
-                                        <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}>
+                                        <h3 className='font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6'>€{item.price}</h3>
+                                        <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}>
                                             Discutons-en ensemble
                                         </button>
                                         <div className='w-full mt-8 space-y-2.5 pb-4'>
@@ -477,17 +490,17 @@ export default function Home() {
                 </section>
             </div>
 
-            <div className="mx-[160px] pb-[250px]">
-                <div className="w-[60%]">
-                    <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15"></div></h2>
-                    <p className="text-lg text-neutral-400 mb-2">Rapidement, je suis un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
+            <div className="mx-[20px] md:mx-[160px] md:pb-[250px] pb-[150px]">
+                <div className="md:w-[60%]">
+                    <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15"></div></h2>
+                    <p className="text-md md:text-lg text-neutral-400 mb-14">Rapidement, je suis un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
                     <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
                         <button onClick={() => setIsSchool(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Etudes</button>
                         <button onClick={() => setIsSchool(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Compétences</button>
                     </div>
                 </div>
                 {!isSchool ? (
-                        <div className="w-full flex gap-10 justify-between mt-4">
+                        <div className="w-full flex flex-col md:flex-row gap-10 justify-between mt-4">
                             <div>
                                 <div>
                                     <ul>
@@ -500,7 +513,7 @@ export default function Home() {
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 className="font-medium text-3xl text-white mb-1">Alternance</h3>
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-1">Alternance</h3>
                                     <p className="text-neutral-400 text-sm">Je suis actuellement en alternance en tant que développeur web, où je mets en pratique les compétences acquises à l’école à travers des projets concrets et professionnels. Cette expérience me permet de renforcer mon autonomie et ma maîtrise des technologies web.</p>
                                 </div>
                             </div>
@@ -516,7 +529,7 @@ export default function Home() {
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 className="font-medium text-3xl text-white mb-1">Formation</h3>
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-1">Formation</h3>
                                     <p className="text-neutral-400 text-sm">
                                     Je suis actuellement étudiant à EDEN School Paris dans un cursus de trois ans dédié au développement web et mobile. La première année est axée sur le front-end, la deuxième sur le back-end, et la troisième, en alternance, sur le développement mobile.
                                     </p>
@@ -534,16 +547,16 @@ export default function Home() {
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 className="font-medium text-3xl text-white mb-1">Stage d'observation</h3>
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-1">Stage d'observation</h3>
                                     <p className="text-neutral-400 text-sm">J'ai effectué mon stage de troisième au siège social de Microsoft à Issy-les-Moulineaux. Dans un cadre très pédagogique, j'ai eu l'opportunité de découvrir leurs locaux et d'assister à des formations sur la cybersécurité, la désinformation et la sensibilisation aux cyberattaques.</p>
                                 </div>
                             </div>
                         </div>
                     ) : (
-                        <div className="w-full mt-4">
-                            <div className="flex items-center gap-10 justify-between mb-4">
-                                <div className="w-[40%]">
-                                    <h3 className="font-medium text-3xl text-white mb-2 flex items-center gap-4">Languages Front End <div className="bg-white h-[2px] w-22"></div></h3>
+                        <div className="flex flex-col md:flex-row gap-10 md:gap-0 w-full mt-4">
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between mb-4">
+                                <div className="md:w-[40%]">
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">Languages Front End <div className="bg-white h-[2px] w-22"></div></h3>
                                     <p className="text-neutral-400 text-sm">Je développe des interfaces modernes, responsives et accessibles, en accordant une attention particulière à l’ergonomie, aux performances et à la qualité de l’intégration visuelle.</p>
                                 </div>
                                 <div className="flex flex-wrap gap-6">
@@ -555,9 +568,9 @@ export default function Home() {
                                     <FaReact size={36} className="text-neutral-400 hover:text-white transition duration-300" />
                                 </div>
                             </div>
-                            <div className="flex gap-10 justify-between items-center mb-4">
-                                <div className="w-[40%]">
-                                    <h3 className="font-medium text-3xl text-white mb-2 flex items-center gap-4">Languages Back End <div className="bg-white h-[2px] w-20"></div></h3>
+                            <div className="flex flex-col md:flex-row gap-6 md:gap-10 justify-between items-start md:items-center mb-4">
+                                <div className="md:w-[40%]">
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">Languages Back End <div className="bg-white h-[2px] w-20"></div></h3>
                                     <p className="text-neutral-400 text-sm">Je conçois des logiques applicatives robustes et des bases de données structurées, en assurant la communication entre le front-end et le serveur ainsi que la gestion des données et des fonctionnalités.</p>
                                 </div>
                                 <div className="flex flex-wrap gap-6">
@@ -571,9 +584,9 @@ export default function Home() {
                                     <FaSymfony size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-10 justify-between">
-                                <div className="w-[40%]">
-                                    <h3 className="font-medium text-3xl text-white mb-2 flex items-center gap-4">Logiciels et autres <div className="bg-white h-[2px] w-18"></div></h3>
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between">
+                                <div className="md:w-[40%]">
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">Logiciels et autres <div className="bg-white h-[2px] w-18"></div></h3>
                                     <p className="text-neutral-400 text-sm">J’utilise des outils professionnels pour concevoir, développer et maintenir=des projets web efficacement, en favorisant un workflow organisé, collaboratif et orienté qualité.</p>
                                 </div>
                                 <div className="flex flex-wrap gap-6">
@@ -588,13 +601,13 @@ export default function Home() {
                         </div>
                     )}
             </div>
-            <div className="w-[70%] mx-auto p-8 border border-white/10 mb-[100px]">
-                <div className="flex gap-14 justify-between items-start">
-                    <div className="w-[40%]">
-                        <h2 className="flex items-center gap-4 text-white text-3xl font-semibold leading-tight tracking-tight mb-2">Prenons contact !</h2>
+            <div className="md:w-[70%] md:mx-auto mx-[20px] p-8 border border-white/10 mb-[100px]">
+                <div className="flex flex-col md:flex-row gap-14 justify-between items-start">
+                    <div className="md:w-[40%] w-[100%]">
+                        <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">Prenons contact !</h2>
                         <p className="text-md text-neutral-400">Décrivez votre projet en précisant <strong>l’offre souhaitée,</strong> les <strong>options nécessaires,</strong> ainsi que toute information utile (objectifs, délais, budget estimé). <br/> <br/> Plus votre message est détaillé, plus nous pourrons vous répondre rapidement et efficacement.</p>
                     </div>
-                    <div className="w-[60%]">
+                    <div className="md:w-[60%] w-[100%]">
                         <form ref={form} onSubmit={sendEmail}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="flex flex-col gap-2">
