@@ -5,10 +5,12 @@ import mockup from "../assets/img/mockup-zoomed.png";
 import gtasWebsite from "../assets/img/gtas-website.png"
 import greenThumbs from "../assets/img/greenthumbs.png"
 import greenMarket from "../assets/img/greenmarket.png"
+import logo from "../assets/img/logo.svg"
 import servUp from "../assets/img/servup.png"
 import { TypeAnimation } from 'react-type-animation'; 
 import { ArrowDown, ArrowRight, Code, Terminal, Cpu, Globe, Zap, LayoutTemplate, Hash, Braces, LoaderCircle } from 'lucide-react'
 import React, {useState, useRef} from "react"
+import { Helmet } from "react-helmet";
 
 // Front
 import { FaHtml5 } from "react-icons/fa";
@@ -78,12 +80,12 @@ export default function Home() {
     const pricingData = [
         {
             name: 'Basique',
-            price: "300 - 500",
+            price: "300",
             description: 'Pour une présence en ligne simple et professionnelle.',
             features: [
-                'Site vitrine 1 page (landing page)',
-                'Développement en React + Tailwind CSS',
-                'Design moderne et responsive',
+                'Site vitrine 1 page (one page)',
+                // 'Développement en React + Tailwind CSS',
+                'Responsive mobile uniquement',
                 'Intégration du contenu fourni',
                 'SEO de base (balises, structure)',
                 'Optimisation des performances',
@@ -93,12 +95,12 @@ export default function Home() {
         {
             name: 'Professionnel',
             mostPopular: true,
-            price: "700 - 900",
+            price: "700",
             description: 'Idéal pour indépendants et petites entreprises.',
             features: [
                 'Site vitrine jusqu’à 5 pages',
                 'Design personnalisé',
-                'React + Tailwind CSS',
+                // 'React + Tailwind CSS',
                 'Responsive tous supports',
                 'SEO optimisé',
                 'Accessibilité de base (contrastes, navigation clavier)',
@@ -108,16 +110,16 @@ export default function Home() {
         },
         {
             name: 'Enterprise',
-            price: "1200 - 1500",
+            price: "1000",
             description: 'Pour un site vitrine complet et évolutif.',
             features: [
                 'Site vitrine sur mesure (jusqu’à 8 pages)',
                 'Architecture propre et scalable',
-                'React + Tailwind CSS avancé',
+                // 'React + Tailwind CSS avancé',
                 'SEO avancé',
                 'Accessibilité renforcée (WCAG basique)',
                 'Optimisation performances (Lighthouse)',
-                'Déploiement & mise en ligne',
+                // 'Déploiement & mise en ligne',
                 'Support et ajustements (14 jours)'
             ]
         }
@@ -137,7 +139,7 @@ export default function Home() {
         },
         {
             name: 'Accessibilité',
-            price: 120,
+            price: 180,
             description: 'Rendre le site accessible au plus grand nombre.',
             features: [
                 'Contrastes et lisibilité optimisés',
@@ -157,36 +159,35 @@ export default function Home() {
                 'Respect des performances'
             ]
         },
+        // {
+        //     name: 'Maintenance post-livraison',
+        //     price: 80,
+        //     description: 'Corrections et ajustements après la mise en ligne.',
+        //     features: [
+        //         'Corrections de bugs mineurs (sur 14 jours)',
+        //         '5 petits ajustements UI',
+        //         'Support par email'
+        //     ]
+        // },
+        // {
+        //     name: 'Aide au contenu',
+        //     price: 120,
+        //     description: 'Accompagnement pour les textes et contenus.',
+        //     features: [
+        //         'Structuration des pages',
+        //         'Aide à la rédaction',
+        //         'Optimisation SEO du contenu'
+        //     ]
+        // },
         {
-            name: 'Maintenance post-livraison',
-            price: 80,
-            description: 'Corrections et ajustements après la mise en ligne.',
-            features: [
-                'Corrections de bugs mineurs (sur 14 jours)',
-                '5 petits ajustements UI',
-                'Support par email'
-            ]
-        },
-        {
-            name: 'Aide au contenu',
-            price: 120,
-            description: 'Accompagnement pour les textes et contenus.',
-            features: [
-                'Structuration des pages',
-                'Aide à la rédaction',
-                'Optimisation SEO du contenu'
-            ]
-        },
-        {
-            name: 'Fonctionnalité avec base de données',
-            price: 250,
+            name: 'Base de donnée',
+            price: 200,
             description: 'Ajout de fonctionnalités dynamiques avec stockage de données.',
             features: [
-                'Connexion à une base de données légère',
-                'Stockage de données simples (formulaires, contenus)',
+                'Stockage de données simples (contenus)',
+                'Backend léger',
+                'Dashboard pour gérer le contenu'
                 // 'Solution type Firebase / Supabase',
-                'Pas de backend complexe',
-                'Sécurité des données'
             ]
         }
     ]
@@ -272,8 +273,8 @@ export default function Home() {
                         « Je crois aux choix réfléchis, aux détails soignés et aux résultats durables. »
                     </p>
                     <div className="mt-8 flex md:gap-x-6 gap-y-3 flex-wrap">
-                        <a href="" className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-400">Découvrez mes créations</a>
-                        <a href="" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 hover:bg-white/10">Travaillons ensemble ?</a>
+                        <a href="/#creations" className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-400">Découvrez mes créations</a>
+                        <a href="/#contact" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 hover:bg-white/10">Travaillons ensemble ?</a>
                     </div>
                 </div>
 
@@ -283,19 +284,18 @@ export default function Home() {
             </div>
 
             <div className="mt-[120px] md:mt-[240px] pb-[150px] md:pb-[300px] relative">
-                <a href="#creations" className="absolute -top-5 left-[50%] border border-neutral-400 p-2 transition-all duration-300 hover:bg-white/10 z-50 hover:top-0.5">
+                <a href="/#creations" className="absolute -top-5 left-[50%] border border-neutral-400 p-2 transition-all duration-300 hover:bg-white/10 z-50 hover:top-0.5">
                     <ArrowDown className="text-neutral-400" />
                 </a>
             </div>
 
-            <div className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]">
+            <div className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]" id="creations">
                 <h2 className="flex items-center gap-4 text-white md:text-3xl text-xl font-semibold leading-tight tracking-tight mb-10">Découvrez mes dernières créations <div className="bg-white h-[2px] w-25"></div></h2>
 
                 <Swiper
                     modules={[Navigation]}
                     spaceBetween={50}
                     navigation
-                    id="creations"
                     breakpoints={{
                         0: { slidesPerView: 1 },
                         768: { slidesPerView: 1.3 },
@@ -424,12 +424,12 @@ export default function Home() {
                 </Swiper>
             </div>
 
-            <div className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]">
+            <div className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]" id="tarifs">
                 <section className='flex items-start justify-center flex-col w-full'>
                     <div className="text-left md:w-[60%]">
                         <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">Tarifs <div className="bg-white h-[2px] w-10"></div></h2>
                         <p className="text-md md:text-lg text-neutral-400 mb-2">* Le code source est livré au client après paiement. L’hébergement est mis en place par mes soins, puis transféré au client (avec support et explication si besoin).</p>
-                        <p className="text-md md:text-lg text-neutral-400 mb-14">* Les offres et options présentés ici peuvent varier, cela dépendra de votre demande.</p>
+                        <p className="text-md md:text-lg text-neutral-400 mb-14">* Les offres et options présentés ici peuvent varier, cela dépendra de la complexité de votre demande.</p>
                         <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
                             <button onClick={() => setIsOptions(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isOptions ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Développement</button>
                             <button onClick={() => setIsOptions(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isOptions ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Options</button>
@@ -441,7 +441,7 @@ export default function Home() {
                                 <div key={index} className={`border p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1 ${item.mostPopular ? 'bg-white/5 border-white/20' : 'border-neutral-400/20 bg-transparent'}`}>
                                     <h3 className='font-medium text-xl md:text-3xl text-white mt-1'>{item.name}</h3>
                                     <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
-                                    <h3 className='font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6'>€{item.price}</h3>
+                                    <h3 className='font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6'><span className="text-xl font-light">Dès</span> €{item.price}</h3>
                                     <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 font-medium ${item.mostPopular ? 'bg-white hover:bg-neutral-200 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
                                         Choisir cette offre
                                     </button>
@@ -468,7 +468,7 @@ export default function Home() {
                                     <SwiperSlide key={index} className={`border p-6 flex flex-col items-start transition duration-300 border-neutral-400/20 bg-transparent`}>
                                         <h3 className='font-medium text-xl md:text-3xl text-white mt-1'>{item.name}</h3>
                                         <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
-                                        <h3 className='font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6'>€{item.price}</h3>
+                                        <h3 className='font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6'><span className="text-xl font-light">Dès</span> €{item.price}</h3>
                                         <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}>
                                             Discutons-en ensemble
                                         </button>
@@ -490,10 +490,10 @@ export default function Home() {
                 </section>
             </div>
 
-            <div className="mx-[20px] md:mx-[160px] md:pb-[250px] pb-[150px]">
+            <div className="mx-[20px] md:mx-[160px] md:pb-[250px] pb-[150px]" id="apropos">
                 <div className="md:w-[60%]">
                     <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15"></div></h2>
-                    <p className="text-md md:text-lg text-neutral-400 mb-14">Rapidement, je suis un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
+                    <p className="text-md md:text-lg text-neutral-400 mb-14">Rapidement, je suis Jules, un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
                     <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
                         <button onClick={() => setIsSchool(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Etudes</button>
                         <button onClick={() => setIsSchool(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Compétences</button>
@@ -553,7 +553,7 @@ export default function Home() {
                             </div>
                         </div>
                     ) : (
-                        <div className="flex flex-col md:flex-row gap-10 md:gap-0 w-full mt-4">
+                        <div className="flex flex-col gap-10 md:gap-0 w-full mt-4">
                             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between mb-4">
                                 <div className="md:w-[40%]">
                                     <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">Languages Front End <div className="bg-white h-[2px] w-22"></div></h3>
@@ -587,7 +587,7 @@ export default function Home() {
                             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between">
                                 <div className="md:w-[40%]">
                                     <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">Logiciels et autres <div className="bg-white h-[2px] w-18"></div></h3>
-                                    <p className="text-neutral-400 text-sm">J’utilise des outils professionnels pour concevoir, développer et maintenir=des projets web efficacement, en favorisant un workflow organisé, collaboratif et orienté qualité.</p>
+                                    <p className="text-neutral-400 text-sm">J’utilise des outils professionnels pour concevoir, développer et maintenir des projets web efficacement, en favorisant un workflow organisé, collaboratif et orienté qualité.</p>
                                 </div>
                                 <div className="flex flex-wrap gap-6">
                                     <FaFigma size={36} className="text-neutral-400 hover:text-white transition duration-300" />
@@ -601,13 +601,13 @@ export default function Home() {
                         </div>
                     )}
             </div>
-            <div className="md:w-[70%] md:mx-auto mx-[20px] p-8 border border-white/10 mb-[100px]">
+            <div className="md:w-[70%] md:mx-auto mx-[20px] p-4 md:p-8 border border-white/10 mb-[100px]">
                 <div className="flex flex-col md:flex-row gap-14 justify-between items-start">
                     <div className="md:w-[40%] w-[100%]">
                         <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">Prenons contact !</h2>
                         <p className="text-md text-neutral-400">Décrivez votre projet en précisant <strong>l’offre souhaitée,</strong> les <strong>options nécessaires,</strong> ainsi que toute information utile (objectifs, délais, budget estimé). <br/> <br/> Plus votre message est détaillé, plus nous pourrons vous répondre rapidement et efficacement.</p>
                     </div>
-                    <div className="md:w-[60%] w-[100%]">
+                    <div className="md:w-[60%] w-[100%]" id="contact">
                         <form ref={form} onSubmit={sendEmail}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="flex flex-col gap-2">
@@ -630,6 +630,15 @@ export default function Home() {
                 </div>
             </div>
         </main>
+        <footer class="relative text-white py-8 overflow-hidden border-t border-white/10">
+
+        <div class="relative z-10 text-center">
+            <p class="text-xs tracking-widest uppercase text-zinc-400">
+            © 2026 — Wthejulio · PORTFOLIO
+            </p>
+        </div>
+
+        </footer>
     </>
   );
 }
