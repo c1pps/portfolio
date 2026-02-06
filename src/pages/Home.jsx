@@ -262,7 +262,7 @@ export default function Home() {
         <main>
             <div className="mt-[100px] md:mt-[200px] text-white flex flex-col lg:flex-row items-center justify-between gap-10 mx-[20px] md:mx-[160px]">
                 <div className="flex-1">
-                    <div className="bg-white h-[2px] w-16 mb-4"></div>
+                    <div className="bg-white h-[2px] w-16 mb-4 mt-14 md:mt-0"></div>
                     <h1 className="md:text-6xl text-4xl font-semibold leading-tight tracking-tight">
                         Je développe
                         <br />
