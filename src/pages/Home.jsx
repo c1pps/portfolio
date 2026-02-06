@@ -1,16 +1,15 @@
 import Nav from "../components/Nav";
+import Footer from '../components/Footer'
 
 import { motion } from "framer-motion";
-import mockup from "../assets/img/mockup-zoomed.png";
-import gtasWebsite from "../assets/img/gtas-website.png"
-import greenThumbs from "../assets/img/greenthumbs.png"
-import greenMarket from "../assets/img/greenmarket.png"
-import logo from "../assets/img/logo.svg"
-import servUp from "../assets/img/servup.png"
+import mockup from "../assets/img/mockup-zoomed.webp";
+import gtasWebsite from "../assets/img/gtas-website.webp"
+import greenThumbs from "../assets/img/greenthumbs.webp"
+import greenMarket from "../assets/img/greenmarket.webp"
+import servUp from "../assets/img/servup.webp"
 import { TypeAnimation } from 'react-type-animation'; 
 import { ArrowDown, ArrowRight, Code, Terminal, Cpu, Globe, Zap, LayoutTemplate, Hash, Braces, LoaderCircle } from 'lucide-react'
 import React, {useState, useRef} from "react"
-import { Helmet } from "react-helmet";
 
 // Front
 import { FaHtml5 } from "react-icons/fa";
@@ -274,12 +273,12 @@ export default function Home() {
                     </p>
                     <div className="mt-8 flex md:gap-x-6 gap-y-3 flex-wrap">
                         <a href="/#creations" className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-400">Découvrez mes créations</a>
-                        <a href="/#contact" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 hover:bg-white/10">Travaillons ensemble ?</a>
+                        <a href="/#contact" className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 hover:bg-white/10">Travaillons ensemble</a>
                     </div>
                 </div>
 
                 <div className="flex-1 flex justify-center lg:justify-end md:mt-0 mt-10">
-                    <img src={mockup} alt="Mockup MacBook codant" className="w-full max-w-lg shadow-2xl object-cover transform transition-transform duration-500 hover:scale-105"/>
+                    <img src={mockup} alt="Mockup MacBook codant" className="w-full max-w-lg shadow-2xl object-cover transform transition-transform duration-500 hover:scale-105" loading="lazy"/>
                 </div>
             </div>
 
@@ -308,6 +307,7 @@ export default function Home() {
                             src={gtasWebsite}
                             alt="Image illustrative du projet GTA Stories"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2026</div>
                         </div>
@@ -337,6 +337,7 @@ export default function Home() {
                             src={greenMarket}
                             alt="Image illustrative du projet Green Market"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2025</div>
                         </div>
@@ -367,6 +368,7 @@ export default function Home() {
                             src={servUp}
                             alt="Image illustrative du projet ServUP"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2024</div>
                         </div>
@@ -398,6 +400,7 @@ export default function Home() {
                             src={greenThumbs}
                             alt="Image illustrative du projet Green Thumbs"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2023</div>
                         </div>
@@ -406,7 +409,7 @@ export default function Home() {
                                 <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     Green Thumbs - Site vitrine
                                 </h3>
-                                <p className="text-md  mt-2 text-neutral-400">
+                                <p className="text-sm mt-2 text-neutral-400">
                                     Projet réalisé dans le cadre d'un exercice scolaire. Green Thumbs est un site vitrine fictif.
                                 </p>
                             </div>
@@ -422,6 +425,119 @@ export default function Home() {
                         </div>
                     </SwiperSlide>
                 </Swiper>
+            </div>
+
+            <div className="mx-[20px] md:mx-[160px] md:pb-[250px] pb-[150px]" id="apropos">
+                <div className="md:w-[60%]">
+                    <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15"></div></h2>
+                    <p className="text-md md:text-lg text-neutral-400 mb-14">Rapidement, je suis Jules, un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
+                    <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
+                        <button onClick={() => setIsSchool(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Etudes</button>
+                        <button onClick={() => setIsSchool(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Compétences</button>
+                    </div>
+                </div>
+                {!isSchool ? (
+                        <div className="w-full flex flex-col md:flex-row gap-10 justify-between mt-4">
+                            
+                            <div>
+                                <div>
+                                    <ul>
+                                        <div className="flex items-center gap-6 w-full mb-2">
+                                            <li className="list-disc text-neutral-400 mx-5 font-medium">
+                                                <span>Déc 2022</span>
+                                            </li>
+                                            <div className="h-px flex-1 bg-neutral-400"></div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-1">Stage d'observation</h3>
+                                    <p className="text-neutral-400 text-sm">J'ai effectué mon stage de troisième au siège social de Microsoft à Issy-les-Moulineaux. Dans un cadre très pédagogique, j'ai eu l'opportunité de découvrir leurs locaux et d'assister à des formations sur la cybersécurité, la désinformation et la sensibilisation aux cyberattaques.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <ul>
+                                        <div className="flex items-center gap-6 w-full mb-2">
+                                            <li className="list-disc text-neutral-400 mx-5 font-medium">
+                                                <span>Sept 2023 - Juil 2026</span>
+                                            </li>
+                                            <div className="h-px flex-1 bg-neutral-400"></div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-1">Formation</h3>
+                                    <p className="text-neutral-400 text-sm">
+                                    Je suis actuellement étudiant à EDEN School Paris dans un cursus de trois ans dédié au développement web et mobile. La première année est axée sur le front-end, la deuxième sur le back-end, et la troisième, en alternance, sur le développement mobile.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <ul>
+                                        <div className="flex items-center gap-6 w-full mb-2">
+                                            <li className="list-disc text-neutral-400 mx-5 font-medium">
+                                                <span>Sept 2025 - Juil 2026</span>
+                                            </li>
+                                            <div className="h-px flex-1 bg-neutral-400"></div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-1">Alternance</h3>
+                                    <p className="text-neutral-400 text-sm">Je suis actuellement en alternance en tant que développeur web, où je mets en pratique les compétences acquises à l’école à travers des projets concrets et professionnels. Cette expérience me permet de renforcer mon autonomie et ma maîtrise des technologies web.</p>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="flex flex-col gap-10 md:gap-0 w-full mt-4">
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between mb-4">
+                                <div className="md:w-[40%]">
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">Languages Front End <div className="bg-white h-[2px] w-22"></div></h3>
+                                    <p className="text-neutral-400 text-sm">Je développe des interfaces modernes, responsives et accessibles, en accordant une attention particulière à l’ergonomie, aux performances et à la qualité de l’intégration visuelle.</p>
+                                </div>
+                                <div className="flex flex-wrap gap-6">
+                                    <FaHtml5 size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaCss3Alt size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <RiTailwindCssFill size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaBootstrap size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaJs size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaReact size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                </div>
+                            </div>
+                            <div className="flex flex-col md:flex-row gap-6 md:gap-10 justify-between items-start md:items-center mb-4">
+                                <div className="md:w-[40%]">
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">Languages Back End <div className="bg-white h-[2px] w-20"></div></h3>
+                                    <p className="text-neutral-400 text-sm">Je conçois des logiques applicatives robustes et des bases de données structurées, en assurant la communication entre le front-end et le serveur ainsi que la gestion des données et des fonctionnalités.</p>
+                                </div>
+                                <div className="flex flex-wrap gap-6">
+                                    <FaPhp size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <FaNodeJs size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <RiNextjsFill size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <SiMysql size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <SiSqlite size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <DiMongodb size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <FaLaravel size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                    <FaSymfony size={36} className="text-neutral-400 hover:text-white transition duration-300"/>
+                                </div>
+                            </div>
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between">
+                                <div className="md:w-[40%]">
+                                    <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">Logiciels et autres <div className="bg-white h-[2px] w-18"></div></h3>
+                                    <p className="text-neutral-400 text-sm">J’utilise des outils professionnels pour concevoir, développer et maintenir des projets web efficacement, en favorisant un workflow organisé, collaboratif et orienté qualité.</p>
+                                </div>
+                                <div className="flex flex-wrap gap-6">
+                                    <FaFigma size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <DiPhotoshop size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <DiVisualstudio size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <SiPhpstorm size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <VscTerminalCmd size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                    <FaGitAlt size={36} className="text-neutral-400 hover:text-white transition duration-300" />
+                                </div>
+                            </div>
+                        </div>
+                    )}
             </div>
 
             <div className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]" id="tarifs">
@@ -629,16 +745,8 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </main>
-        <footer class="relative text-white py-8 overflow-hidden border-t border-white/10">
-
-        <div class="relative z-10 text-center">
-            <p class="text-xs tracking-widest uppercase text-zinc-400">
-            © 2026 — Wthejulio · PORTFOLIO
-            </p>
-        </div>
-
-        </footer>
     </>
   );
 }
