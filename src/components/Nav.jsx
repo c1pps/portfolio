@@ -1,6 +1,6 @@
 export default function Nav() {
     return (
-        <header className='fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 px-[20px] md:px-[160px] text-white text-xl font-light bg-gradient-to-b from-black/90 to-transparent py-8'>
+        <header className='fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 px-[20px] md:px-[160px] text-white text-xl font-light backdrop-blur-md bg-[#121212]/50 border-b border-white/5 py-5 items-center'>
             <nav>
                 <ul className='flex justify-between flex-col md:flex-row'>
                     <div>
