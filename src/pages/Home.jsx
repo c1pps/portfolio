@@ -558,7 +558,7 @@ export default function Home() {
                                     <h3 className='font-medium text-xl md:text-3xl text-white mt-1'>{item.name}</h3>
                                     <p className='text-sm text-neutral-400 mt-2'>{item.description}</p>
                                     <h3 className='font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6'><span className="text-xl font-light">Dès</span> €{item.price}</h3>
-                                    <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 font-medium ${item.mostPopular ? 'bg-white hover:bg-neutral-200 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
+                                    <button className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 font-medium ${item.mostPopular ? 'bg-white hover:bg-neutral-400 text-black' : 'border border-neutral-400/20 text-white hover:bg-white/10'}`}>
                                         Choisir cette offre
                                     </button>
                                     <div className='w-full mt-8 space-y-2.5 pb-4'>
