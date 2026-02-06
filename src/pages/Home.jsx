@@ -408,7 +408,7 @@ export default function Home() {
                                 <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
                                     Green Thumbs - Site vitrine
                                 </h3>
-                                <p className="text-md  mt-2 text-neutral-400">
+                                <p className="text-sm mt-2 text-neutral-400">
                                     Projet réalisé dans le cadre d'un exercice scolaire. Green Thumbs est un site vitrine fictif.
                                 </p>
                             </div>
