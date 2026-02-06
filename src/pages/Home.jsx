@@ -1,16 +1,14 @@
 import Nav from "../components/Nav";
 
 import { motion } from "framer-motion";
-import mockup from "../assets/img/mockup-zoomed.png";
-import gtasWebsite from "../assets/img/gtas-website.png"
-import greenThumbs from "../assets/img/greenthumbs.png"
-import greenMarket from "../assets/img/greenmarket.png"
-import logo from "../assets/img/logo.svg"
-import servUp from "../assets/img/servup.png"
+import mockup from "../assets/img/mockup-zoomed.webp";
+import gtasWebsite from "../assets/img/gtas-website.webp"
+import greenThumbs from "../assets/img/greenthumbs.webp"
+import greenMarket from "../assets/img/greenmarket.webp"
+import servUp from "../assets/img/servup.webp"
 import { TypeAnimation } from 'react-type-animation'; 
 import { ArrowDown, ArrowRight, Code, Terminal, Cpu, Globe, Zap, LayoutTemplate, Hash, Braces, LoaderCircle } from 'lucide-react'
 import React, {useState, useRef} from "react"
-import { Helmet } from "react-helmet";
 
 // Front
 import { FaHtml5 } from "react-icons/fa";
@@ -279,7 +277,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex-1 flex justify-center lg:justify-end md:mt-0 mt-10">
-                    <img src={mockup} alt="Mockup MacBook codant" className="w-full max-w-lg shadow-2xl object-cover transform transition-transform duration-500 hover:scale-105"/>
+                    <img src={mockup} alt="Mockup MacBook codant" className="w-full max-w-lg shadow-2xl object-cover transform transition-transform duration-500 hover:scale-105" loading="lazy"/>
                 </div>
             </div>
 
@@ -308,6 +306,7 @@ export default function Home() {
                             src={gtasWebsite}
                             alt="Image illustrative du projet GTA Stories"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2026</div>
                         </div>
@@ -337,6 +336,7 @@ export default function Home() {
                             src={greenMarket}
                             alt="Image illustrative du projet Green Market"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2025</div>
                         </div>
@@ -367,6 +367,7 @@ export default function Home() {
                             src={servUp}
                             alt="Image illustrative du projet ServUP"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2024</div>
                         </div>
@@ -398,6 +399,7 @@ export default function Home() {
                             src={greenThumbs}
                             alt="Image illustrative du projet Green Thumbs"
                             className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                            loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2023</div>
                         </div>
