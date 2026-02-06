@@ -109,7 +109,7 @@ export default function Home() {
             ]
         },
         {
-            name: 'Enterprise',
+            name: 'Entreprise',
             price: "1000",
             description: 'Pour un site vitrine complet et évolutif.',
             features: [
@@ -493,7 +493,7 @@ export default function Home() {
             <div className="mx-[20px] md:mx-[160px] md:pb-[250px] pb-[150px]" id="apropos">
                 <div className="md:w-[60%]">
                     <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">À Propos <div className="bg-white h-[2px] w-15"></div></h2>
-                    <p className="text-md md:text-lg text-neutral-400 mb-14">Rapidement, je suis Jules, un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
+                    <p className="text-md md:text-lg text-neutral-400 mb-14">Brièvement, je suis Jules, un jeune développeur web de 17 ans, avec maintenant plus de 4 ans d'éxperience.</p>
                     <div className='mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10'>
                         <button onClick={() => setIsSchool(false)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Etudes</button>
                         <button onClick={() => setIsSchool(true)} className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white'}`}>Compétences</button>
