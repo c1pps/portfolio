@@ -311,7 +311,7 @@ export default function Home() {
         </div>
 
         <div
-          className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]"
+          className="md:mx-[160px] mx-[20px] md:pb-[200px] pb-[150px]"
           id="creations"
         >
           <h2 className="flex items-center gap-4 text-white md:text-3xl text-xl font-semibold leading-tight tracking-tight mb-10">
@@ -424,6 +424,7 @@ export default function Home() {
                 <a
                   href="https://gta-stories.fr/"
                   className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min"
+                  aria-label="Découvrir le projet GTA Stories"
                 >
                   Découvrir <ArrowRight size="14" />
                 </a>
@@ -475,6 +476,7 @@ export default function Home() {
                 <a
                   href="https://green-market-d3jw.vercel.app/"
                   className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min"
+                  aria-label="Découvrir le projet Green Market"
                 >
                   Découvrir <ArrowRight size="14" />
                 </a>
@@ -570,6 +572,7 @@ export default function Home() {
                 <a
                   href="https://r-green-thumbs-z62e.vercel.app/"
                   className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min"
+                  aria-label="Découvrir le projet Green Thumbs"
                 >
                   Découvrir <ArrowRight size="14" />
                 </a>
@@ -579,7 +582,7 @@ export default function Home() {
         </div>
 
         <div
-          className="mx-[20px] md:mx-[160px] md:pb-[250px] pb-[150px]"
+          className="mx-[20px] md:mx-[160px] md:pb-[200px] pb-[150px]"
           id="apropos"
         >
           <div className="md:w-[60%]">
@@ -587,19 +590,21 @@ export default function Home() {
               À Propos <div className="bg-white h-[2px] w-15"></div>
             </h2>
             <p className="text-md md:text-lg text-neutral-400 mb-14">
-              Rapidement, je suis Jules, un jeune développeur web de 17 ans,
+              Brièvement, je suis Jules, un jeune développeur web de 17 ans,
               avec maintenant plus de 4 ans d'éxperience.
             </p>
             <div className="mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10">
               <button
                 onClick={() => setIsSchool(false)}
                 className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? "bg-white text-black shadow-sm" : "text-neutral-400 hover:text-white"}`}
+                aria-label="Accéder à la partie d'études"
               >
                 Etudes
               </button>
               <button
                 onClick={() => setIsSchool(true)}
                 className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? "bg-white text-black shadow-sm" : "text-neutral-400 hover:text-white"}`}
+                aria-label="Accéder à la partie des compétences"
               >
                 Compétences
               </button>
@@ -612,7 +617,7 @@ export default function Home() {
                   <ul>
                     <div className="flex items-center gap-6 w-full mb-2">
                       <li className="list-disc text-neutral-400 mx-5 font-medium">
-                        <span>Déc 2022</span>
+                        <span>Sept 2025 - Juil 2026</span>
                       </li>
                       <div className="h-px flex-1 bg-neutral-400"></div>
                     </div>
@@ -620,14 +625,14 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-medium text-xl md:text-3xl text-white mb-1">
-                    Stage d'observation
+                    Alternance
                   </h3>
                   <p className="text-neutral-400 text-sm">
-                    J'ai effectué mon stage de troisième au siège social de
-                    Microsoft à Issy-les-Moulineaux. Dans un cadre très
-                    pédagogique, j'ai eu l'opportunité de découvrir leurs locaux
-                    et d'assister à des formations sur la cybersécurité, la
-                    désinformation et la sensibilisation aux cyberattaques.
+                    Je suis actuellement en alternance en tant que développeur
+                    web, où je mets en pratique les compétences acquises à
+                    l’école à travers des projets concrets et professionnels.
+                    Cette expérience me permet de renforcer mon autonomie et ma
+                    maîtrise des technologies web.
                   </p>
                 </div>
               </div>
@@ -660,7 +665,7 @@ export default function Home() {
                   <ul>
                     <div className="flex items-center gap-6 w-full mb-2">
                       <li className="list-disc text-neutral-400 mx-5 font-medium">
-                        <span>Sept 2025 - Juil 2026</span>
+                        <span>Déc 2022</span>
                       </li>
                       <div className="h-px flex-1 bg-neutral-400"></div>
                     </div>
@@ -668,14 +673,14 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-medium text-xl md:text-3xl text-white mb-1">
-                    Alternance
+                    Stage d'observation
                   </h3>
                   <p className="text-neutral-400 text-sm">
-                    Je suis actuellement en alternance en tant que développeur
-                    web, où je mets en pratique les compétences acquises à
-                    l’école à travers des projets concrets et professionnels.
-                    Cette expérience me permet de renforcer mon autonomie et ma
-                    maîtrise des technologies web.
+                    J'ai effectué mon stage de troisième au siège social de
+                    Microsoft à Issy-les-Moulineaux. Dans un cadre très
+                    pédagogique, j'ai eu l'opportunité de découvrir leurs locaux
+                    et d'assister à des formations sur la cybersécurité, la
+                    désinformation et la sensibilisation aux cyberattaques.
                   </p>
                 </div>
               </div>
@@ -815,7 +820,7 @@ export default function Home() {
         </div>
 
         <div
-          className="md:mx-[160px] mx-[20px] md:pb-[250px] pb-[150px]"
+          className="md:mx-[160px] mx-[20px] md:pb-[200px] pb-[150px]"
           id="tarifs"
         >
           <section className="flex items-start justify-center flex-col w-full">
@@ -836,12 +841,14 @@ export default function Home() {
                 <button
                   onClick={() => setIsOptions(false)}
                   className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isOptions ? "bg-white text-black shadow-sm" : "text-neutral-400 hover:text-white"}`}
+                  aria-label="Accéder à la partie de développement"
                 >
                   Développement
                 </button>
                 <button
                   onClick={() => setIsOptions(true)}
                   className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isOptions ? "bg-white text-black shadow-sm" : "text-neutral-400 hover:text-white"}`}
+                  aria-label="Accéder à la partie des options"
                 >
                   Options
                 </button>
@@ -866,6 +873,7 @@ export default function Home() {
                     </h3>
                     <button
                       className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 font-medium ${item.mostPopular ? "bg-white hover:bg-neutral-400 text-black" : "border border-neutral-400/20 text-white hover:bg-white/10"}`}
+                      aria-label="Choissisez cette offre"
                     >
                       Choisir cette offre
                     </button>
@@ -915,6 +923,7 @@ export default function Home() {
                       </h3>
                       <button
                         className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}
+                        aria-label="Discutons-en ensemble"
                       >
                         Discutons-en ensemble
                       </button>
@@ -939,241 +948,6 @@ export default function Home() {
           </section>
         </div>
 
-        <div
-          className="mx-[20px] md:mx-[160px] md:pb-[250px] pb-[150px]"
-          id="apropos"
-        >
-          <div className="md:w-[60%]">
-            <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">
-              À Propos <div className="bg-white h-[2px] w-15"></div>
-            </h2>
-            <p className="text-md md:text-lg text-neutral-400 mb-14">
-              Brièvement, je suis Jules, un jeune développeur web de 17 ans,
-              avec maintenant plus de 4 ans d'éxperience.
-            </p>
-            <div className="mt-6 flex gap-2 w-min bg-white/5 p-1 border border-white/10">
-              <button
-                onClick={() => setIsSchool(false)}
-                className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${!isSchool ? "bg-white text-black shadow-sm" : "text-neutral-400 hover:text-white"}`}
-              >
-                Etudes
-              </button>
-              <button
-                onClick={() => setIsSchool(true)}
-                className={`px-5 py-2 text-sm cursor-pointer font-medium transition-all duration-300 ${isSchool ? "bg-white text-black shadow-sm" : "text-neutral-400 hover:text-white"}`}
-              >
-                Compétences
-              </button>
-            </div>
-          </div>
-          {!isSchool ? (
-            <div className="w-full flex flex-col md:flex-row gap-10 justify-between mt-4">
-              <div>
-                <div>
-                  <ul>
-                    <div className="flex items-center gap-6 w-full mb-2">
-                      <li className="list-disc text-neutral-400 mx-5 font-medium">
-                        <span>Sept 2025 - Juil 2026</span>
-                      </li>
-                      <div className="h-px flex-1 bg-neutral-400"></div>
-                    </div>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-medium text-xl md:text-3xl text-white mb-1">
-                    Alternance
-                  </h3>
-                  <p className="text-neutral-400 text-sm">
-                    Je suis actuellement en alternance en tant que développeur
-                    web, où je mets en pratique les compétences acquises à
-                    l’école à travers des projets concrets et professionnels.
-                    Cette expérience me permet de renforcer mon autonomie et ma
-                    maîtrise des technologies web.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <ul>
-                    <div className="flex items-center gap-6 w-full mb-2">
-                      <li className="list-disc text-neutral-400 mx-5 font-medium">
-                        <span>Sept 2023 - Juil 2026</span>
-                      </li>
-                      <div className="h-px flex-1 bg-neutral-400"></div>
-                    </div>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-medium text-xl md:text-3xl text-white mb-1">
-                    Formation
-                  </h3>
-                  <p className="text-neutral-400 text-sm">
-                    Je suis actuellement étudiant à EDEN School Paris dans un
-                    cursus de trois ans dédié au développement web et mobile. La
-                    première année est axée sur le front-end, la deuxième sur le
-                    back-end, et la troisième, en alternance, sur le
-                    développement mobile.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <ul>
-                    <div className="flex items-center gap-6 w-full mb-2">
-                      <li className="list-disc text-neutral-400 mx-5 font-medium">
-                        <span>Déc 2022</span>
-                      </li>
-                      <div className="h-px flex-1 bg-neutral-400"></div>
-                    </div>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-medium text-xl md:text-3xl text-white mb-1">
-                    Stage d'observation
-                  </h3>
-                  <p className="text-neutral-400 text-sm">
-                    J'ai effectué mon stage de troisième au siège social de
-                    Microsoft à Issy-les-Moulineaux. Dans un cadre très
-                    pédagogique, j'ai eu l'opportunité de découvrir leurs locaux
-                    et d'assister à des formations sur la cybersécurité, la
-                    désinformation et la sensibilisation aux cyberattaques.
-                  </p>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-col gap-10 md:gap-0 w-full mt-4">
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between mb-4">
-                <div className="md:w-[40%]">
-                  <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">
-                    Languages Front End{" "}
-                    <div className="bg-white h-[2px] w-22"></div>
-                  </h3>
-                  <p className="text-neutral-400 text-sm">
-                    Je développe des interfaces modernes, responsives et
-                    accessibles, en accordant une attention particulière à
-                    l’ergonomie, aux performances et à la qualité de
-                    l’intégration visuelle.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-6">
-                  <FaHtml5
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaCss3Alt
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <RiTailwindCssFill
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaBootstrap
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaJs
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaReact
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col md:flex-row gap-6 md:gap-10 justify-between items-start md:items-center mb-4">
-                <div className="md:w-[40%]">
-                  <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">
-                    Languages Back End{" "}
-                    <div className="bg-white h-[2px] w-20"></div>
-                  </h3>
-                  <p className="text-neutral-400 text-sm">
-                    Je conçois des logiques applicatives robustes et des bases
-                    de données structurées, en assurant la communication entre
-                    le front-end et le serveur ainsi que la gestion des données
-                    et des fonctionnalités.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-6">
-                  <FaPhp
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaNodeJs
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <RiNextjsFill
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <SiMysql
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <SiSqlite
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <DiMongodb
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaLaravel
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaSymfony
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between">
-                <div className="md:w-[40%]">
-                  <h3 className="font-medium text-xl md:text-3xl text-white mb-2 flex items-center gap-4">
-                    Logiciels et autres{" "}
-                    <div className="bg-white h-[2px] w-18"></div>
-                  </h3>
-                  <p className="text-neutral-400 text-sm">
-                    J’utilise des outils professionnels pour concevoir,
-                    développer et maintenir des projets web efficacement, en
-                    favorisant un workflow organisé, collaboratif et orienté
-                    qualité.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-6">
-                  <FaFigma
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <DiPhotoshop
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <DiVisualstudio
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <SiPhpstorm
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <VscTerminalCmd
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaGitAlt
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
         <div className="md:w-[70%] md:mx-auto mx-[20px] p-4 md:p-8 border border-white/10 mb-[100px]">
           <div className="flex flex-col md:flex-row gap-14 justify-between items-start">
             <div className="md:w-[40%] w-[100%]">
