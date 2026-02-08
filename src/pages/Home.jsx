@@ -336,7 +336,7 @@ export default function Home() {
                             <img
                             src={greenMarket}
                             alt="Image illustrative du projet Green Market"
-                            className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                            className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter md:grayscale group-hover:grayscale-0"
                             loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2025</div>
@@ -367,7 +367,7 @@ export default function Home() {
                             <img
                             src={servUp}
                             alt="Image illustrative du projet ServUP"
-                            className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                            className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter md:grayscale group-hover:grayscale-0"
                             loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2024</div>
@@ -399,7 +399,7 @@ export default function Home() {
                             <img
                             src={greenThumbs}
                             alt="Image illustrative du projet Green Thumbs"
-                            className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                            className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter md:grayscale group-hover:grayscale-0"
                             loading="lazy"
                             />
                             <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">2023</div>
