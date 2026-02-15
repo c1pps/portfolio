@@ -88,14 +88,15 @@ export default function Home() {
   const pricingData = [
     {
       name: "Basique",
-      price: "300",
-      description: "Pour une présence en ligne simple et professionnelle.",
+      price: "250",
+      days: "5",
+      description: "Pour lancer votre présence en ligne rapidement.",
       features: [
-        "Site vitrine 1 page (one page)",
-        // 'Développement en React + Tailwind CSS',
-        "Responsive mobile uniquement",
+        "Site vitrine one page",
+        "Design moderne",
+        "Responsive mobile & tablette",
         "Intégration du contenu fourni",
-        "SEO de base (balises, structure)",
+        "SEO essentiel (balises, structure)",
         "Optimisation des performances",
         "Support après livraison (7 jours)",
       ],
@@ -103,32 +104,34 @@ export default function Home() {
     {
       name: "Professionnel",
       mostPopular: true,
-      price: "700",
-      description: "Idéal pour indépendants et petites entreprises.",
+      price: "280",
+      days: "12",
+      description:
+        "Le meilleur choix pour indépendants et petites entreprises.",
       features: [
         "Site vitrine jusqu’à 5 pages",
         "Design personnalisé",
-        // 'React + Tailwind CSS',
         "Responsive tous supports",
         "SEO optimisé",
-        "Accessibilité de base (contrastes, navigation clavier)",
+        "Accessibilité standard",
         "Formulaire de contact",
-        "Corrections mineures après livraison (14 jours)",
+        "Optimisation des performances avancée",
+        "Corrections après livraison (14 jours)",
       ],
     },
     {
       name: "Entreprise",
-      price: "1000",
-      description: "Pour un site vitrine complet et évolutif.",
+      price: "Sur devis",
+      days: "20",
+      description: "Un site complet, performant et évolutif.",
       features: [
         "Site vitrine sur mesure (jusqu’à 8 pages)",
-        "Architecture propre et scalable",
-        // 'React + Tailwind CSS avancé',
+        "Architecture évolutive",
         "SEO avancé",
-        "Accessibilité renforcée (WCAG basique)",
-        "Optimisation performances (Lighthouse)",
-        // 'Déploiement & mise en ligne',
-        "Support et ajustements (14 jours)",
+        "Accessibilité renforcée",
+        "Optimisation Lighthouse",
+        "Formulaires ou modules spécifiques",
+        "Support prioritaire (14 jours)",
       ],
     },
   ];
@@ -136,48 +139,47 @@ export default function Home() {
   const options = [
     {
       name: "SEO Avancé",
-      price: 150,
+      price: 300,
       description:
-        "Amélioration du référencement pour une meilleure visibilité.",
+        "Travail approfondi pour améliorer votre visibilité sur Google.",
       features: [
-        "Optimisation des balises meta",
-        "Amélioration de la structure des pages",
-        "Optimisation des performances",
-        "Conseils mots-clés",
+        "Recherche de mots-clés",
+        "Optimisation du contenu",
+        "Structure SEO avancée",
+        "Conseils de positionnement",
       ],
     },
     {
-      name: "Accessibilité",
-      price: 180,
-      description: "Rendre le site accessible au plus grand nombre.",
+      name: "Accessibilité renforcée",
+      price: 250,
+      description: "Amélioration de l’expérience pour tous les utilisateurs.",
       features: [
-        "Contrastes et lisibilité optimisés",
+        "Contrastes optimisés",
         "Navigation clavier",
-        "Balises ARIA essentielles",
-        "Bonnes pratiques WCAG (niveau basique)",
+        "Balises ARIA",
+        "Bonnes pratiques WCAG",
       ],
     },
     {
-      name: "Animations & UI",
-      price: 100,
-      description: "Rendre le site plus vivant et moderne.",
+      name: "Animations & UI Premium",
+      price: 180,
+      description: "Un rendu plus moderne et interactif.",
       features: [
-        "Animations simples (hover, transitions)",
-        "Micro-interactions UI",
-        "Animations TailwindCSS",
-        "Respect des performances",
+        "Micro-interactions",
+        "Transitions avancées",
+        "Animations légères",
+        "Optimisation des performances",
       ],
     },
     {
-      name: "Base de donnée",
-      price: 200,
-      description:
-        "Ajout de fonctionnalités dynamiques avec stockage de données.",
+      name: "Fonctionnalités dynamiques",
+      price: 490,
+      description: "Ajout de gestion de contenu ou stockage de données.",
       features: [
-        "Stockage de données simples (contenus)",
         "Backend léger",
-        "Dashboard pour gérer le contenu",
-        // 'Solution type Firebase / Supabase',
+        "Base de données",
+        "Dashboard d’administration",
+        "Formation rapide à l’utilisation",
       ],
     },
   ];
@@ -377,8 +379,8 @@ export default function Home() {
 
                 <div className="flex items-center gap-2 text-orange-400/80 text-sm font-medium py-1">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full -full bg-orange-400 opacity-75"></span>
+                    <span className="relative inline-flex -full h-2 w-2 bg-orange-500"></span>
                   </span>
                   Phase de développement active...
                 </div>
@@ -855,35 +857,61 @@ export default function Home() {
               </div>
             </div>
             {!isOptions ? (
-              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {pricingData.map((item, index) => (
                   <div
                     key={index}
-                    className={`border p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1 ${item.mostPopular ? "bg-white/5 border-white/20" : "border-neutral-400/20 bg-transparent"}`}
+                    className={`relative h-full p-6 flex flex-col transition duration-300 hover:-translate-y-1
+                    ${
+                      item.mostPopular
+                        ? "bg-white/5 border border-white/20"
+                        : "border border-neutral-400/20"
+                    }`}
                   >
-                    <h3 className="font-medium text-xl md:text-3xl text-white mt-1">
+                    {item.mostPopular && (
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs bg-white text-black px-3 py-1 font-medium">
+                        Le plus populaire
+                      </span>
+                    )}
+
+                    <h3 className="font-medium text-2xl text-white">
                       {item.name}
                     </h3>
                     <p className="text-sm text-neutral-400 mt-2">
                       {item.description}
                     </p>
-                    <h3 className="font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6">
-                      <span className="text-xl font-light">Dès</span> €
-                      {item.price}
-                    </h3>
-                    <button
-                      className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 font-medium ${item.mostPopular ? "bg-white hover:bg-neutral-400 text-black" : "border border-neutral-400/20 text-white hover:bg-white/10"}`}
-                      aria-label="Choissisez cette offre"
+
+                    <div className="mt-6">
+                      <p className="text-neutral-400 text-sm">À partir de</p>
+                      <p className="text-white font-medium text-4xl">
+                        {item.name === "Entreprise"
+                          ? "Sur devis"
+                          : item.price + "€ / jour"}
+                      </p>
+                      <p className="text-neutral-400 text-sm mt-1">
+                        Généralement {item.days} jours
+                      </p>
+                    </div>
+
+                    <a
+                      href="/#contact"
+                      className={`w-full px-4 py-3 text-center text-sm mt-6 font-medium transition duration-300
+                      ${
+                        item.mostPopular
+                          ? "bg-white text-black hover:bg-neutral-300"
+                          : "border border-neutral-400/20 text-white hover:bg-white/10"
+                      }`}
                     >
                       Choisir cette offre
-                    </button>
-                    <div className="w-full mt-8 space-y-2.5 pb-4">
+                    </a>
+
+                    <div className="mt-auto pt-8 space-y-3">
                       {item.features.map((feature, index) => (
                         <p
                           key={index}
                           className="flex items-center gap-3 text-sm text-neutral-400"
                         >
-                          <span className="size-3 bg-neutral-800 flex items-center justify-center shrink-0">
+                          <span className="size-4 bg-neutral-800 flex items-center justify-center shrink-0">
                             <span className="size-1.5 bg-white" />
                           </span>
                           {feature}
