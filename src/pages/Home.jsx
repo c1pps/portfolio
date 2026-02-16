@@ -922,10 +922,10 @@ export default function Home() {
                 ))}
               </div>
             ) : (
-              <div className="mt-4 w-full">
+              <div className="mt-10 w-full">
                 <Swiper
                   modules={[Navigation]}
-                  spaceBetween={50}
+                  spaceBetween={24}
                   slidesPerView={3}
                   navigation
                   breakpoints={{
@@ -939,13 +939,13 @@ export default function Home() {
                       key={index}
                       className={`border p-6 flex flex-col items-start transition duration-300 border-neutral-400/20 bg-transparent`}
                     >
-                      <h3 className="font-medium text-xl md:text-3xl text-white mt-1">
+                      <h3 className="font-medium text-2xl text-white mt-1">
                         {item.name}
                       </h3>
                       <p className="text-sm text-neutral-400 mt-2">
                         {item.description}
                       </p>
-                      <h3 className="font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6">
+                      <h3 className="text-white font-medium text-4xl mt-4 md:mt-6">
                         <span className="text-xl font-light">Dès</span> €
                         {item.price}
                       </h3>
@@ -979,9 +979,17 @@ export default function Home() {
         <div className="md:w-[70%] md:mx-auto mx-[20px] p-4 md:p-8 border border-white/10 mb-[100px]">
           <div className="flex flex-col md:flex-row gap-14 justify-between items-start">
             <div className="md:w-[40%] w-[100%]">
-              <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">
-                Prenons contact !
-              </h2>
+              <div className="flex items-center gap-2 mb-2">
+                <h2 className="text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight">
+                  Prenons contact !
+                </h2>
+                <div className="bg-green-500/20 backdrop-blur-sm px-3 py-1 text-md font-medium border border-green-500/30 text-green-400">
+                  Disponible
+                </div>
+                {/* <div className="bg-orange-500/20 backdrop-blur-sm px-3 py-1 text-md font-medium border border-orange-500/30 text-orange-400">
+                  Indisponible
+                </div> */}
+              </div>
               <p className="text-md text-neutral-400">
                 Décrivez votre projet en précisant{" "}
                 <strong>l’offre souhaitée,</strong> les{" "}
