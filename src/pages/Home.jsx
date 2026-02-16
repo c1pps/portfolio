@@ -88,7 +88,7 @@ export default function Home() {
   const pricingData = [
     {
       name: "Basique",
-      price: "250",
+      price: "265",
       days: "5",
       description: "Pour lancer votre présence en ligne rapidement.",
       features: [
@@ -98,13 +98,13 @@ export default function Home() {
         "Intégration du contenu fourni",
         "SEO essentiel (balises, structure)",
         "Optimisation des performances",
-        "Support après livraison (7 jours)",
+        "Support après livraison (14 jours)",
       ],
     },
     {
       name: "Professionnel",
       mostPopular: true,
-      price: "280",
+      price: "265",
       days: "12",
       description:
         "Le meilleur choix pour indépendants et petites entreprises.",
@@ -116,7 +116,7 @@ export default function Home() {
         "Accessibilité standard",
         "Formulaire de contact",
         "Optimisation des performances avancée",
-        "Corrections après livraison (14 jours)",
+        "Corrections après livraison (30 jours)",
       ],
     },
     {
@@ -131,27 +131,27 @@ export default function Home() {
         "Accessibilité renforcée",
         "Optimisation Lighthouse",
         "Formulaires ou modules spécifiques",
-        "Support prioritaire (14 jours)",
+        "Support prioritaire (30 jours)",
       ],
     },
   ];
 
   const options = [
-    {
-      name: "SEO Avancé",
-      price: 300,
-      description:
-        "Travail approfondi pour améliorer votre visibilité sur Google.",
-      features: [
-        "Recherche de mots-clés",
-        "Optimisation du contenu",
-        "Structure SEO avancée",
-        "Conseils de positionnement",
-      ],
-    },
+    // {
+    //   name: "SEO Avancé",
+    //   price: 300,
+    //   description:
+    //     "Travail approfondi pour améliorer votre visibilité sur Google.",
+    //   features: [
+    //     "Recherche de mots-clés",
+    //     "Optimisation du contenu",
+    //     "Structure SEO avancée",
+    //     "Conseils de positionnement",
+    //   ],
+    // },
     {
       name: "Accessibilité renforcée",
-      price: 250,
+      price: 180,
       description: "Amélioration de l’expérience pour tous les utilisateurs.",
       features: [
         "Contrastes optimisés",
@@ -162,7 +162,7 @@ export default function Home() {
     },
     {
       name: "Animations & UI Premium",
-      price: 180,
+      price: 100,
       description: "Un rendu plus moderne et interactif.",
       features: [
         "Micro-interactions",
@@ -173,7 +173,7 @@ export default function Home() {
     },
     {
       name: "Fonctionnalités dynamiques",
-      price: 490,
+      price: 350,
       description: "Ajout de gestion de contenu ou stockage de données.",
       features: [
         "Backend léger",
