@@ -280,7 +280,7 @@ export default function Home() {
             <div className="mt-8 flex md:gap-x-6 gap-y-3 flex-wrap">
               <a
                 href="/#creations"
-                className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-400"
+                className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-300"
               >
                 Découvrez mes créations
               </a>
@@ -905,13 +905,13 @@ export default function Home() {
                       Choisir cette offre
                     </a>
 
-                    <div className="mt-auto pt-8 space-y-3">
+                    <div className="w-full mt-8 space-y-2.5">
                       {item.features.map((feature, index) => (
                         <p
                           key={index}
                           className="flex items-center gap-3 text-sm text-neutral-400"
                         >
-                          <span className="size-4 bg-neutral-800 flex items-center justify-center shrink-0">
+                          <span className="size-3 bg-neutral-800 flex items-center justify-center shrink-0">
                             <span className="size-1.5 bg-white" />
                           </span>
                           {feature}
@@ -939,23 +939,25 @@ export default function Home() {
                       key={index}
                       className={`border p-6 flex flex-col items-start transition duration-300 border-neutral-400/20 bg-transparent`}
                     >
-                      <h3 className="font-medium text-2xl text-white mt-1">
+                      <h3 className="font-medium text-2xl text-white">
                         {item.name}
                       </h3>
                       <p className="text-sm text-neutral-400 mt-2">
                         {item.description}
                       </p>
-                      <h3 className="text-white font-medium text-4xl mt-4 md:mt-6">
-                        <span className="text-xl font-light">Dès</span> €
-                        {item.price}
-                      </h3>
+                      <div className="mt-6">
+                        <p className="text-neutral-400 text-sm">Dès</p>
+                        <p className="text-white font-medium text-4xl">
+                          {item.price + "€"}
+                        </p>
+                      </div>
                       <button
                         className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}
                         aria-label="Discutons-en ensemble"
                       >
                         Discutons-en ensemble
                       </button>
-                      <div className="w-full mt-8 space-y-2.5 pb-4">
+                      <div className="w-full mt-8 space-y-2.5">
                         {item.features.map((feature, index) => (
                           <p
                             key={index}
