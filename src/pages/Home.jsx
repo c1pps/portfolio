@@ -613,7 +613,7 @@ export default function Home() {
             </div>
           </div>
           {!isSchool ? (
-            <div className="w-full flex flex-col md:flex-row gap-10 justify-between mt-4">
+            <div className="w-full flex flex-col md:flex-row gap-10 justify-between mt-10">
               <div>
                 <div>
                   <ul>
