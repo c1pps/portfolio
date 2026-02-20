@@ -88,7 +88,7 @@ export default function Home() {
   const pricingData = [
     {
       name: "Basique",
-      price: "250",
+      price: "265",
       days: "5",
       description: "Pour lancer votre présence en ligne rapidement.",
       features: [
@@ -98,13 +98,13 @@ export default function Home() {
         "Intégration du contenu fourni",
         "SEO essentiel (balises, structure)",
         "Optimisation des performances",
-        "Support après livraison (7 jours)",
+        "Support après livraison (14 jours)",
       ],
     },
     {
       name: "Professionnel",
       mostPopular: true,
-      price: "280",
+      price: "265",
       days: "12",
       description:
         "Le meilleur choix pour indépendants et petites entreprises.",
@@ -116,7 +116,7 @@ export default function Home() {
         "Accessibilité standard",
         "Formulaire de contact",
         "Optimisation des performances avancée",
-        "Corrections après livraison (14 jours)",
+        "Corrections après livraison (30 jours)",
       ],
     },
     {
@@ -131,27 +131,27 @@ export default function Home() {
         "Accessibilité renforcée",
         "Optimisation Lighthouse",
         "Formulaires ou modules spécifiques",
-        "Support prioritaire (14 jours)",
+        "Support prioritaire (30 jours)",
       ],
     },
   ];
 
   const options = [
-    {
-      name: "SEO Avancé",
-      price: 300,
-      description:
-        "Travail approfondi pour améliorer votre visibilité sur Google.",
-      features: [
-        "Recherche de mots-clés",
-        "Optimisation du contenu",
-        "Structure SEO avancée",
-        "Conseils de positionnement",
-      ],
-    },
+    // {
+    //   name: "SEO Avancé",
+    //   price: 300,
+    //   description:
+    //     "Travail approfondi pour améliorer votre visibilité sur Google.",
+    //   features: [
+    //     "Recherche de mots-clés",
+    //     "Optimisation du contenu",
+    //     "Structure SEO avancée",
+    //     "Conseils de positionnement",
+    //   ],
+    // },
     {
       name: "Accessibilité renforcée",
-      price: 250,
+      price: 180,
       description: "Amélioration de l’expérience pour tous les utilisateurs.",
       features: [
         "Contrastes optimisés",
@@ -162,7 +162,7 @@ export default function Home() {
     },
     {
       name: "Animations & UI Premium",
-      price: 180,
+      price: 100,
       description: "Un rendu plus moderne et interactif.",
       features: [
         "Micro-interactions",
@@ -173,7 +173,7 @@ export default function Home() {
     },
     {
       name: "Fonctionnalités dynamiques",
-      price: 490,
+      price: 350,
       description: "Ajout de gestion de contenu ou stockage de données.",
       features: [
         "Backend léger",
@@ -280,7 +280,7 @@ export default function Home() {
             <div className="mt-8 flex md:gap-x-6 gap-y-3 flex-wrap">
               <a
                 href="/#creations"
-                className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-400"
+                className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-300"
               >
                 Découvrez mes créations
               </a>
@@ -905,13 +905,13 @@ export default function Home() {
                       Choisir cette offre
                     </a>
 
-                    <div className="mt-auto pt-8 space-y-3">
+                    <div className="w-full mt-8 space-y-2.5">
                       {item.features.map((feature, index) => (
                         <p
                           key={index}
                           className="flex items-center gap-3 text-sm text-neutral-400"
                         >
-                          <span className="size-4 bg-neutral-800 flex items-center justify-center shrink-0">
+                          <span className="size-3 bg-neutral-800 flex items-center justify-center shrink-0">
                             <span className="size-1.5 bg-white" />
                           </span>
                           {feature}
@@ -922,10 +922,10 @@ export default function Home() {
                 ))}
               </div>
             ) : (
-              <div className="mt-4 w-full">
+              <div className="mt-10 w-full">
                 <Swiper
                   modules={[Navigation]}
-                  spaceBetween={50}
+                  spaceBetween={24}
                   slidesPerView={3}
                   navigation
                   breakpoints={{
@@ -939,23 +939,25 @@ export default function Home() {
                       key={index}
                       className={`border p-6 flex flex-col items-start transition duration-300 border-neutral-400/20 bg-transparent`}
                     >
-                      <h3 className="font-medium text-xl md:text-3xl text-white mt-1">
+                      <h3 className="font-medium text-2xl text-white">
                         {item.name}
                       </h3>
                       <p className="text-sm text-neutral-400 mt-2">
                         {item.description}
                       </p>
-                      <h3 className="font-medium text-3xl md:text-5xl text-white mt-4 md:mt-6">
-                        <span className="text-xl font-light">Dès</span> €
-                        {item.price}
-                      </h3>
+                      <div className="mt-6">
+                        <p className="text-neutral-400 text-sm">Dès</p>
+                        <p className="text-white font-medium text-4xl">
+                          {item.price + "€"}
+                        </p>
+                      </div>
                       <button
                         className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}
                         aria-label="Discutons-en ensemble"
                       >
                         Discutons-en ensemble
                       </button>
-                      <div className="w-full mt-8 space-y-2.5 pb-4">
+                      <div className="w-full mt-8 space-y-2.5">
                         {item.features.map((feature, index) => (
                           <p
                             key={index}
@@ -979,9 +981,17 @@ export default function Home() {
         <div className="md:w-[70%] md:mx-auto mx-[20px] p-4 md:p-8 border border-white/10 mb-[100px]">
           <div className="flex flex-col md:flex-row gap-14 justify-between items-start">
             <div className="md:w-[40%] w-[100%]">
-              <h2 className="flex items-center gap-4 text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight mb-2">
-                Prenons contact !
-              </h2>
+              <div className="flex items-center gap-2 mb-2">
+                <h2 className="text-white text-xl md:text-3xl font-semibold leading-tight tracking-tight">
+                  Prenons contact !
+                </h2>
+                <div className="bg-green-500/20 backdrop-blur-sm px-3 py-1 text-md font-medium border border-green-500/30 text-green-400">
+                  Disponible
+                </div>
+                {/* <div className="bg-orange-500/20 backdrop-blur-sm px-3 py-1 text-md font-medium border border-orange-500/30 text-orange-400">
+                  Indisponible
+                </div> */}
+              </div>
               <p className="text-md text-neutral-400">
                 Décrivez votre projet en précisant{" "}
                 <strong>l’offre souhaitée,</strong> les{" "}
