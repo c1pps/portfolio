@@ -27,6 +27,7 @@ import React, { useState, useRef } from "react";
 // Front
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
+import { BsFiletypeScss } from "react-icons/bs";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaBootstrap } from "react-icons/fa";
 import { FaJs } from "react-icons/fa";
@@ -41,6 +42,7 @@ import { SiSqlite } from "react-icons/si";
 import { DiMongodb } from "react-icons/di";
 import { FaLaravel } from "react-icons/fa";
 import { FaSymfony } from "react-icons/fa";
+import { SiExpress } from "react-icons/si";
 
 // Logiciel
 import { FaFigma } from "react-icons/fa";
@@ -49,6 +51,7 @@ import { DiVisualstudio } from "react-icons/di";
 import { SiPhpstorm } from "react-icons/si";
 import { VscTerminalCmd } from "react-icons/vsc";
 import { FaGitAlt } from "react-icons/fa";
+import { FaDocker } from "react-icons/fa";
 
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
@@ -702,12 +705,16 @@ export default function Home() {
                     l’intégration visuelle.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap flex-row-reverse gap-6">
                   <FaHtml5
                     size={36}
                     className="text-neutral-400 hover:text-white transition duration-300"
                   />
                   <FaCss3Alt
+                    size={36}
+                    className="text-neutral-400 hover:text-white transition duration-300"
+                  />
+                  <BsFiletypeScss 
                     size={36}
                     className="text-neutral-400 hover:text-white transition duration-300"
                   />
@@ -727,6 +734,7 @@ export default function Home() {
                     size={36}
                     className="text-neutral-400 hover:text-white transition duration-300"
                   />
+
                 </div>
               </div>
               <div className="flex flex-col md:flex-row gap-6 md:gap-10 justify-between items-start md:items-center mb-4">
@@ -742,7 +750,7 @@ export default function Home() {
                     et des fonctionnalités.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap flex-row-reverse gap-6">
                   <FaPhp
                     size={36}
                     className="text-neutral-400 hover:text-white transition duration-300"
@@ -775,6 +783,10 @@ export default function Home() {
                     size={36}
                     className="text-neutral-400 hover:text-white transition duration-300"
                   />
+                  <SiExpress
+                    size={36}
+                    className="text-neutral-400 hover:text-white transition duration-300"
+                  />
                 </div>
               </div>
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between">
@@ -790,7 +802,7 @@ export default function Home() {
                     qualité.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap flex-row-reverse gap-6">
                   <FaFigma
                     size={36}
                     className="text-neutral-400 hover:text-white transition duration-300"
@@ -814,6 +826,10 @@ export default function Home() {
                   <FaGitAlt
                     size={36}
                     className="text-neutral-400 hover:text-white transition duration-300"
+                  />
+                  <FaDocker
+                    size={36}
+                    className="text-neutral-400 hover:text-white transition duration-300" 
                   />
                 </div>
               </div>
