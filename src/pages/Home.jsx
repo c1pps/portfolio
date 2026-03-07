@@ -197,8 +197,8 @@ export default function Home() {
         {/* Floating Icons - Top Left */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 0.03, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          animate={{ opacity: 0.03, y: [-15, 15] }}
+          transition={{ opacity: { duration: 1, delay: 0.5 }, y: { duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.5 } }}
           className="absolute top-32 left-20 text-white rotate-12"
         >
           <Code size={120} strokeWidth={1} />
@@ -207,8 +207,8 @@ export default function Home() {
         {/* Floating Icons - Top Right */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 0.03, y: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
+          animate={{ opacity: 0.03, y: [-10, 10] }}
+          transition={{ opacity: { duration: 1, delay: 0.7 }, y: { duration: 3.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.7 } }}
           className="absolute top-40 right-20 text-white -rotate-12"
         >
           <Terminal size={100} strokeWidth={1} />
@@ -217,8 +217,8 @@ export default function Home() {
         {/* Floating Icons - Middle Left */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.02, scale: 1 }}
-          transition={{ duration: 1, delay: 0.9 }}
+          animate={{ opacity: 0.03, scale: 1, y: [-12, 12] }}
+          transition={{ opacity: { duration: 1, delay: 0.9 }, scale: { duration: 1, delay: 0.9 }, y: { duration: 4.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.9 } }}
           className="absolute top-1/2 left-32 text-white rotate-6"
         >
           <Braces size={140} strokeWidth={0.5} />
@@ -227,8 +227,8 @@ export default function Home() {
         {/* Floating Icons - Middle Right */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.02, scale: 1 }}
-          transition={{ duration: 1, delay: 1.1 }}
+          animate={{ opacity: 0.03, scale: 1, y: [-15, 15] }}
+          transition={{ opacity: { duration: 1, delay: 1.1 }, scale: { duration: 1, delay: 1.1 }, y: { duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.1 } }}
           className="absolute top-[45%] right-40 text-white -rotate-6"
         >
           <Cpu size={110} strokeWidth={0.5} />
@@ -237,8 +237,8 @@ export default function Home() {
         {/* Floating Icons - Bottom Left */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 0.03, y: 0 }}
-          transition={{ duration: 1, delay: 1.3 }}
+          animate={{ opacity: 0.03, y: [-10, 10] }}
+          transition={{ opacity: { duration: 1, delay: 1.3 }, y: { duration: 3.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.3 } }}
           className="absolute bottom-40 left-10 text-white rotate-45"
         >
           <Hash size={90} strokeWidth={1} />
@@ -247,8 +247,8 @@ export default function Home() {
         {/* Floating Icons - Bottom Right */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 0.03, y: 0 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          animate={{ opacity: 0.03, y: [-20, 20] }}
+          transition={{ opacity: { duration: 1, delay: 1.5 }, y: { duration: 5.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1.5 } }}
           className="absolute bottom-20 right-10 text-white -rotate-12"
         >
           <Globe size={130} strokeWidth={0.5} />
@@ -273,7 +273,7 @@ export default function Home() {
                 ]}
                 speed={50}
                 repeat={Infinity}
-                className="transition duration-300 text-neutral-400 font-light leading-14 tracking-tight hover:text-white"
+                className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 via-neutral-400 to-neutral-500 font-light leading-14 tracking-tight"
               />
             </h1>
             <p className="mt-4 font-light text-lg md:text-xl">
@@ -283,13 +283,13 @@ export default function Home() {
             <div className="mt-8 flex md:gap-x-6 gap-y-3 flex-wrap">
               <a
                 href="/#creations"
-                className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition duration-300 hover:bg-neutral-300"
+                className="bg-white text-[#191919] text-sm font-medium px-6 py-2 transition-all duration-300 hover:bg-neutral-200 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
               >
                 Découvrez mes créations
               </a>
               <a
                 href="/#contact"
-                className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-6 py-2 transition duration-300 hover:bg-white/10"
+                className="bg-transparent border border-neutral-400/20 text-white text-sm font-medium px-6 py-2 transition-all duration-300 hover:bg-white/10 hover:border-white/40"
               >
                 Travaillons ensemble
               </a>
@@ -315,7 +315,11 @@ export default function Home() {
           </a>
         </div>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
           className="md:mx-[160px] mx-[20px] md:pb-[200px] pb-[150px]"
           id="creations"
         >
@@ -334,7 +338,8 @@ export default function Home() {
               1024: { slidesPerView: 3 },
             }}
           >
-            <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+            <SwiperSlide className="bg-transparent h-auto">
+              <div className="group h-full text-white border border-neutral-400/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] flex flex-col justify-between">
               <div className="relative overflow-hidden">
                 <img
                   src={valorProject}
@@ -388,8 +393,10 @@ export default function Home() {
                   Phase de développement active...
                 </div>
               </div>
+              </div>
             </SwiperSlide>
-            <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+            <SwiperSlide className="bg-transparent h-auto">
+              <div className="group h-full text-white border border-neutral-400/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] flex flex-col justify-between">
               <div className="relative overflow-hidden">
                 <img
                   src={gtasWebsite}
@@ -434,8 +441,10 @@ export default function Home() {
                   Découvrir <ArrowRight size="14" />
                 </a>
               </div>
+              </div>
             </SwiperSlide>
-            <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+            <SwiperSlide className="bg-transparent h-auto">
+              <div className="group h-full text-white border border-neutral-400/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] flex flex-col justify-between">
               <div className="relative overflow-hidden">
                 <img
                   src={greenMarket}
@@ -486,8 +495,10 @@ export default function Home() {
                   Découvrir <ArrowRight size="14" />
                 </a>
               </div>
+              </div>
             </SwiperSlide>
-            <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+            <SwiperSlide className="bg-transparent h-auto">
+              <div className="group h-full text-white border border-neutral-400/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] flex flex-col justify-between">
               <div className="relative overflow-hidden">
                 <img
                   src={servUp}
@@ -535,8 +546,10 @@ export default function Home() {
 
                 {/* <button className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min" disabled>Découvrir <ArrowRight size="14" /></button> */}
               </div>
+              </div>
             </SwiperSlide>
-            <SwiperSlide className="group text-white border border-neutral-400/20 bg-transparent">
+            <SwiperSlide className="bg-transparent h-auto">
+              <div className="group h-full text-white border border-neutral-400/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] flex flex-col justify-between">
               <div className="relative overflow-hidden">
                 <img
                   src={greenThumbs}
@@ -582,11 +595,16 @@ export default function Home() {
                   Découvrir <ArrowRight size="14" />
                 </a>
               </div>
+              </div>
             </SwiperSlide>
           </Swiper>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
           className="mx-[20px] md:mx-[160px] md:pb-[200px] pb-[150px]"
           id="apropos"
         >
@@ -706,35 +724,13 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-wrap flex-row-reverse gap-6">
-                  <FaHtml5
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaCss3Alt
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <BsFiletypeScss 
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <RiTailwindCssFill
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaBootstrap
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaJs
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaReact
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-
+                  <FaHtml5 size={36} className="text-neutral-400 hover:text-orange-500 hover:scale-110 transition-all duration-300" />
+                  <FaCss3Alt size={36} className="text-neutral-400 hover:text-blue-500 hover:scale-110 transition-all duration-300" />
+                  <BsFiletypeScss size={36} className="text-neutral-400 hover:text-pink-500 hover:scale-110 transition-all duration-300" />
+                  <RiTailwindCssFill size={36} className="text-neutral-400 hover:text-cyan-400 hover:scale-110 transition-all duration-300" />
+                  <FaBootstrap size={36} className="text-neutral-400 hover:text-purple-500 hover:scale-110 transition-all duration-300" />
+                  <FaJs size={36} className="text-neutral-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300" />
+                  <FaReact size={36} className="text-neutral-400 hover:text-blue-400 hover:scale-110 transition-all duration-300" />
                 </div>
               </div>
               <div className="flex flex-col md:flex-row gap-6 md:gap-10 justify-between items-start md:items-center mb-4">
@@ -751,42 +747,15 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-wrap flex-row-reverse gap-6">
-                  <FaPhp
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaNodeJs
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <RiNextjsFill
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <SiMysql
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <SiSqlite
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <DiMongodb
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaLaravel
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaSymfony
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <SiExpress
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
+                  <FaPhp size={36} className="text-neutral-400 hover:text-indigo-400 hover:scale-110 transition-all duration-300" />
+                  <FaNodeJs size={36} className="text-neutral-400 hover:text-green-500 hover:scale-110 transition-all duration-300" />
+                  <RiNextjsFill size={36} className="text-neutral-400 hover:text-white hover:scale-110 transition-all duration-300" />
+                  <SiMysql size={36} className="text-neutral-400 hover:text-blue-500 hover:scale-110 transition-all duration-300" />
+                  <SiSqlite size={36} className="text-neutral-400 hover:text-blue-300 hover:scale-110 transition-all duration-300" />
+                  <DiMongodb size={36} className="text-neutral-400 hover:text-green-500 hover:scale-110 transition-all duration-300" />
+                  <FaLaravel size={36} className="text-neutral-400 hover:text-red-500 hover:scale-110 transition-all duration-300" />
+                  <FaSymfony size={36} className="text-neutral-400 hover:text-gray-300 hover:scale-110 transition-all duration-300" />
+                  <SiExpress size={36} className="text-neutral-400 hover:text-gray-400 hover:scale-110 transition-all duration-300" />
                 </div>
               </div>
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between">
@@ -803,41 +772,24 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-wrap flex-row-reverse gap-6">
-                  <FaFigma
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <DiPhotoshop
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <DiVisualstudio
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <SiPhpstorm
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <VscTerminalCmd
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaGitAlt
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300"
-                  />
-                  <FaDocker
-                    size={36}
-                    className="text-neutral-400 hover:text-white transition duration-300" 
-                  />
+                  <FaFigma size={36} className="text-neutral-400 hover:text-pink-400 hover:scale-110 transition-all duration-300" />
+                  <DiPhotoshop size={36} className="text-neutral-400 hover:text-blue-600 hover:scale-110 transition-all duration-300" />
+                  <DiVisualstudio size={36} className="text-neutral-400 hover:text-blue-500 hover:scale-110 transition-all duration-300" />
+                  <SiPhpstorm size={36} className="text-neutral-400 hover:text-purple-600 hover:scale-110 transition-all duration-300" />
+                  <VscTerminalCmd size={36} className="text-neutral-400 hover:text-green-400 hover:scale-110 transition-all duration-300" />
+                  <FaGitAlt size={36} className="text-neutral-400 hover:text-orange-600 hover:scale-110 transition-all duration-300" />
+                  <FaDocker size={36} className="text-neutral-400 hover:text-blue-400 hover:scale-110 transition-all duration-300" />
                 </div>
               </div>
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
           className="md:mx-[160px] mx-[20px] md:pb-[200px] pb-[150px]"
           id="tarifs"
         >
@@ -877,12 +829,11 @@ export default function Home() {
                 {pricingData.map((item, index) => (
                   <div
                     key={index}
-                    className={`relative h-full p-6 flex flex-col transition duration-300 hover:-translate-y-1
-                    ${
-                      item.mostPopular
-                        ? "bg-white/5 border border-white/20"
-                        : "border border-neutral-400/20"
-                    }`}
+                    className={`relative h-full p-6 flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,255,255,0.1)]
+                    ${item.mostPopular
+                        ? "bg-white/10 border border-white/30 backdrop-blur-md"
+                        : "bg-neutral-900/50 border border-neutral-400/20 backdrop-blur-sm hover:border-white/30"
+                      }`}
                   >
                     {item.mostPopular && (
                       <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs bg-white text-black px-3 py-1 font-medium">
@@ -912,11 +863,10 @@ export default function Home() {
                     <a
                       href="/#contact"
                       className={`w-full px-4 py-3 text-center text-sm mt-6 font-medium transition duration-300
-                      ${
-                        item.mostPopular
+                      ${item.mostPopular
                           ? "bg-white text-black hover:bg-neutral-300"
                           : "border border-neutral-400/20 text-white hover:bg-white/10"
-                      }`}
+                        }`}
                     >
                       Choisir cette offre
                     </a>
@@ -953,38 +903,40 @@ export default function Home() {
                   {options.map((item, index) => (
                     <SwiperSlide
                       key={index}
-                      className={`border p-6 flex flex-col items-start transition duration-300 border-neutral-400/20 bg-transparent`}
+                      className="bg-transparent h-auto"
                     >
-                      <h3 className="font-medium text-2xl text-white">
-                        {item.name}
-                      </h3>
-                      <p className="text-sm text-neutral-400 mt-2">
-                        {item.description}
-                      </p>
-                      <div className="mt-6">
-                        <p className="text-neutral-400 text-sm">Dès</p>
-                        <p className="text-white font-medium text-4xl">
-                          {item.price + "€"}
+                      <div className={`h-full border p-6 flex flex-col items-start transition-all duration-500 border-neutral-400/20 bg-neutral-900/40 backdrop-blur-sm hover:border-white/30`}>
+                        <h3 className="font-medium text-2xl text-white">
+                          {item.name}
+                        </h3>
+                        <p className="text-sm text-neutral-400 mt-2">
+                          {item.description}
                         </p>
-                      </div>
-                      <button
-                        className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}
-                        aria-label="Discutons-en ensemble"
-                      >
-                        Discutons-en ensemble
-                      </button>
-                      <div className="w-full mt-8 space-y-2.5">
-                        {item.features.map((feature, index) => (
-                          <p
-                            key={index}
-                            className="flex items-center gap-3 text-sm text-neutral-400"
-                          >
-                            <span className="size-3 bg-neutral-800 flex items-center justify-center shrink-0">
-                              <span className="size-1.5 bg-white" />
-                            </span>
-                            {feature}
+                        <div className="mt-6">
+                          <p className="text-neutral-400 text-sm">Dès</p>
+                          <p className="text-white font-medium text-4xl">
+                            {item.price + "€"}
                           </p>
-                        ))}
+                        </div>
+                        <button
+                          className={`w-full px-4 py-3 cursor-pointer text-sm mt-6 md:mt-8 transition duration-300 border border-neutral-400/20 text-white hover:bg-white/10 font-medium`}
+                          aria-label="Discutons-en ensemble"
+                        >
+                          Discutons-en ensemble
+                        </button>
+                        <div className="w-full mt-8 space-y-2.5">
+                          {item.features.map((feature, index) => (
+                            <p
+                              key={index}
+                              className="flex items-center gap-3 text-sm text-neutral-400"
+                            >
+                              <span className="size-3 bg-neutral-800 flex items-center justify-center shrink-0">
+                                <span className="size-1.5 bg-white" />
+                              </span>
+                              {feature}
+                            </p>
+                          ))}
+                        </div>
                       </div>
                     </SwiperSlide>
                   ))}
@@ -992,9 +944,17 @@ export default function Home() {
               </div>
             )}
           </section>
-        </div>
+        </motion.div>
 
-        <div className="md:w-[70%] md:mx-auto mx-[20px] p-4 md:p-8 border border-white/10 mb-[100px]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="md:w-[70%] md:mx-auto mx-[20px] p-4 md:p-8 border border-white/10 mb-[100px] relative overflow-hidden"
+        >
+          {/* Subtle Glow Effect for Contact */}
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-white/5 rounded-full blur-[100px] pointer-events-none"></div>
           <div className="flex flex-col md:flex-row gap-14 justify-between items-start">
             <div className="md:w-[40%] w-[100%]">
               <div className="flex items-center gap-2 mb-2">
@@ -1070,7 +1030,7 @@ export default function Home() {
               </form>
             </div>
           </div>
-        </div>
+        </motion.div>
         <Footer />
       </main>
     </>
