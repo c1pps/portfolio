@@ -439,6 +439,12 @@ export default function Home() {
                   <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">
                     Discord.js
                   </p>
+                  <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">
+                    Responsive
+                  </p>
+                  <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">
+                    ...
+                  </p>
                 </div>
 
                 <a
