@@ -7,6 +7,7 @@ import gtasWebsite from "../assets/img/gtas-website.webp";
 import greenThumbs from "../assets/img/greenthumbs.webp";
 import greenMarket from "../assets/img/greenmarket.webp";
 import valorProject from "../assets/img/valor.webp";
+import theloopProject from "../assets/img/tlwebsite.webp";
 import servUp from "../assets/img/servup.webp";
 import { TypeAnimation } from "react-type-animation";
 import {
@@ -392,6 +393,61 @@ export default function Home() {
                   </span>
                   Phase de développement active...
                 </div>
+              </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="bg-transparent h-auto">
+            <div className="group h-full text-white border border-neutral-400/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] flex flex-col justify-between">
+              <div className="relative overflow-hidden">
+                <img
+                  src={theloopProject}
+                  alt="Image illustrative du projet The Loop LS"
+                  className="w-full h-64 object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter md:grayscale group-hover:grayscale-0"
+                  loading="lazy"
+                />
+
+                <div className="absolute bottom-2 right-2 flex gap-2">
+                  {/* <div className="bg-orange-500/20 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-orange-500/30 text-orange-400">
+                    En développement
+                  </div> */}
+                  <div className="bg-black/60 backdrop-blur-sm px-3 py-1 text-sm font-medium border border-white/10">
+                    2026
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 bg-transparent">
+                <div className="mb-8">
+                  <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white">
+                    The Loop LS - Roleplay
+                  </h3>
+                  <p className="text-sm mt-2 text-neutral-400">
+                    The Loop Los Santos est un serveur Imagine Roleplay sur FiveM basé sur le roleplay vocal et écrit.
+                  </p>
+                </div>
+
+                <div className="flex gap-2 flex-wrap mb-4">
+                  <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">
+                    React JS
+                  </p>
+                  <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">
+                    Node JS (Express)
+                  </p>
+                  <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">
+                    Socket.io
+                  </p>
+                  <p className="px-3 py-1 bg-white/5 border border-white/10 text-neutral-300 text-xs">
+                    Discord.js
+                  </p>
+                </div>
+
+                <a
+                  href="https://theloop-rp.fr/"
+                  className="bg-transparent border border-neutral-400/20 text-white hover:bg-white/10 text-sm font-medium px-4 py-2 transition duration-300 flex items-center gap-2 w-min"
+                  aria-label="Découvrir le projet The Loop LS"
+                >
+                  Découvrir <ArrowRight size="14" />
+                </a>
               </div>
               </div>
             </SwiperSlide>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="46" viewBox="0 0 220 46">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 61.809px;
+        font-family: Roboto;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #ffffff;
+      }
+
+      .cls-2 {
+        stroke: #ffffff;
+        stroke-width: 1px;
+      }
+    </style>
+  </defs>
+  <text id="Jules" class="cls-1" x="-0.5" y="44.5">Jules</text>
+  <rect class="cls-2" x="185" y="34" width="35" height="9" rx="2" ry="2"/>
+</svg>
